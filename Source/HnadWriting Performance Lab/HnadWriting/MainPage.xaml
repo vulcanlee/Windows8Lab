@@ -28,6 +28,14 @@
             <TextBlock Text="Using Direct2D" Grid.Row="0" Grid.Column="2" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
             <TextBlock Text="Using InkManager" Grid.Row="0" Grid.Column="3" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
 
+
+            <Viewbox Grid.Row="4" Grid.Column="3">
+                <Grid Width="768" Height="1024">
+                    <Image x:Name="imgUsingInkManager" Source="" Stretch="UniformToFill" />
+                </Grid>
+            </Viewbox>
+
+            
             <Button x:Name="btnUsingGeometriesDrawing" Content="Drawing" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingGeometriesDrawing_Click"/>
             <Viewbox Grid.Row="4" Grid.Column="2">
                 <Grid Width="768" Height="1024">

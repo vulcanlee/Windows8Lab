@@ -55,6 +55,7 @@ namespace HnadWriting
 
             d2dTarget = new SurfaceImageSourceTarget(pixelWidth, pixelHeight);
             d2dBrush.ImageSource = d2dTarget.ImageSource;
+            imgUsingInkManager.Source = d2dTarget.ImageSource;
 
             // Add Initializer to device manager
             deviceManager.OnInitialize += d2dTarget.Initialize;
