@@ -32,6 +32,8 @@ namespace HnadWriting
         private ShapeRenderer shapeRenderer;
         private DragHandler d2dDragHandler;
 
+        頁面手寫物件軌跡 頁面手寫物件軌跡_左 = new 頁面手寫物件軌跡();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -40,6 +42,8 @@ namespace HnadWriting
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            產生手寫軌跡的測試資料();
 
             d2dBrush = new ImageBrush();
             cnUsingGeometries.Background = d2dBrush;
@@ -88,6 +92,44 @@ namespace HnadWriting
         private void btnUsingGeometriesDrawing_Click(object sender, RoutedEventArgs e)
         {
             d2dTarget.RenderAll();
+        }
+
+        private void 產生手寫軌跡的測試資料()
+        {
+            Random random = new Random((int)DateTime.Now.Ticks);
+            int 最多手寫次數 = random.Next(5, 20);
+
+            for (int hi = 0; hi < 最多手寫次數; hi++)
+            {
+                手寫物件軌跡 手寫物件軌跡 = new 手寫物件軌跡();
+                int 每次手寫軌跡資料數 = random.Next(100, 1500);
+                for (int hj = 0; hj < 每次手寫軌跡資料數; hj++)
+                {
+                    手寫物件 手寫物件 = new 手寫物件();
+
+                    手寫物件軌跡.手寫物件s.Add(手寫物件);
+                }
+                頁面手寫物件軌跡_左.手寫物件軌跡s.Add(手寫物件軌跡);
+            }
+
+
+            //foreach (var item in 頁面手寫物件軌跡_左.手寫物件軌跡s)
+            //{
+            //    foreach (var item1 in item.手寫物件s)
+            //    {
+            //        Line line = new Line()
+            //        {
+            //            X1 = item1.X1,
+            //            X2 = item1.X2,
+            //            Y1 = item1.Y1,
+            //            Y2 = item1.Y2,
+            //            StrokeThickness = item.StrokeThickness,
+            //            Stroke = item.取得手寫物件調色盤的實際SolidColorBrush(),
+            //        };
+            //        this.canvas右邊手寫畫板.Children.Add(line);
+
+            //    }
+            //}
         }
 
     }

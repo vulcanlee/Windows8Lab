@@ -66,7 +66,8 @@ namespace HnadWriting
                 #region 原來的範例 繪製文字與線條
 
                 Debug.WriteLine("Switch Flash {0}", switchFlash);
-                if ((switchFlash % 3) == 0)
+                //if ((switchFlash % 3) == 0)
+                if (true)
                 {
                     switchFlash++;
 
