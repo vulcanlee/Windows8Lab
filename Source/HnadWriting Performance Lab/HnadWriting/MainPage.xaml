@@ -7,42 +7,53 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Viewbox>
-        <Grid Width="1366" Height="768">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="69"/>
-                <RowDefinition Height="69"/>
-                <RowDefinition Height="69"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <Grid x:Name="mainLayout">
+        <Viewbox>
+            <Grid Width="1366" Height="768">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="69"/>
+                    <RowDefinition Height="69"/>
+                    <RowDefinition Height="69"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Using Geometries" Grid.Row="0" Grid.Column="0" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
-            <TextBlock Text="Using WriteableBitmap" Grid.Row="0" Grid.Column="1" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
-            <TextBlock Text="Using Direct2D" Grid.Row="0" Grid.Column="2" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
-            <TextBlock Text="Using InkManager" Grid.Row="0" Grid.Column="3" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
+                <TextBlock Text="Using Geometries" Grid.Row="0" Grid.Column="0" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
+                <TextBlock Text="Using WriteableBitmap" Grid.Row="0" Grid.Column="1" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
+                <TextBlock Text="Using SharpDX" Grid.Row="0" Grid.Column="2" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
+                <TextBlock Text="Using DirectX" Grid.Row="0" Grid.Column="3" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
 
 
-            <Viewbox Grid.Row="4" Grid.Column="3">
-                <Grid Width="768" Height="1024">
-                    <Image x:Name="imgUsingInkManager" Source="" Stretch="UniformToFill" />
-                </Grid>
-            </Viewbox>
+                <Viewbox Grid.Row="4" Grid.Column="3">
+                    <Grid Width="768" Height="1024">
+                        <Image x:Name="imgUsingInkManager" Source="" Stretch="UniformToFill" />
+                    </Grid>
+                </Viewbox>
 
-            
-            <Button x:Name="btnUsingGeometriesDrawing" Content="Drawing" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingGeometriesDrawing_Click"/>
-            <Viewbox Grid.Row="4" Grid.Column="2">
-                <Grid Width="768" Height="1024">
-                    <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />
-                    <Canvas x:Name="cnUsingGeometries" Height="1024" Width="768" />
-                </Grid>
-            </Viewbox>
-        </Grid>
-    </Viewbox>
+
+                <Button x:Name="btnUsingGeometriesDrawing" Content="Drawing" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingGeometriesDrawing_Click"/>
+                <Viewbox Grid.Row="4" Grid.Column="2">
+                    <Grid Width="768" Height="1024">
+                        <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />
+                        <Canvas x:Name="cnUsingGeometries" Height="1024" Width="768" />
+                    </Grid>
+                </Viewbox>
+
+                <Button x:Name="btnUsingDirectXDrawing" Content="Drawing" Grid.Row="3" Grid.Column="3" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingDirectXDrawing_Click"/>
+                <Viewbox Grid.Row="4" Grid.Column="3">
+                    <Grid Width="768" Height="1024">
+                        <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />
+                        <Canvas x:Name="cnUsingDirectXs" Height="1024" Width="768" />
+                    </Grid>
+                </Viewbox>
+            </Grid>
+        </Viewbox>
+    </Grid>
 </Page>

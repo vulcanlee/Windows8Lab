@@ -1,12 +1,32 @@
-﻿using SharpDX;
-using SharpDX.Direct3D;
+﻿// Copyright (c) 2010-2011 SharpDX - Alexandre Mutel
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SharpDX;
+using SharpDX.Direct3D;
+using Windows.UI.Core;
 
-namespace HnadWriting.ComonDX
+namespace CommonDX
 {
     /// <summary>
     /// This class handles device creation for Direct2D, Direct3D, DirectWrite
@@ -25,17 +45,17 @@ namespace HnadWriting.ComonDX
     public class DeviceManager : Component
     {
         // Declare Direct2D Objects
-        protected SharpDX.Direct2D1.Factory1 d2dFactory;
-        protected SharpDX.Direct2D1.Device d2dDevice;
-        protected SharpDX.Direct2D1.DeviceContext d2dContext;
+        protected SharpDX.Direct2D1.Factory1           d2dFactory;
+        protected SharpDX.Direct2D1.Device             d2dDevice;
+        protected SharpDX.Direct2D1.DeviceContext      d2dContext;
 
         // Declare DirectWrite & Windows Imaging Component Objects
-        protected SharpDX.DirectWrite.Factory dwriteFactory;
-        protected SharpDX.WIC.ImagingFactory2 wicFactory;
+        protected SharpDX.DirectWrite.Factory          dwriteFactory;
+        protected SharpDX.WIC.ImagingFactory2          wicFactory;
 
         // Direct3D Objects
-        protected SharpDX.Direct3D11.Device1 d3dDevice;
-        protected SharpDX.Direct3D11.DeviceContext1 d3dContext;
+        protected SharpDX.Direct3D11.Device1           d3dDevice;
+        protected SharpDX.Direct3D11.DeviceContext1    d3dContext;
         protected FeatureLevel featureLevel;
         protected float dpi;
 
@@ -92,7 +112,7 @@ namespace HnadWriting.ComonDX
         {
             CreateDeviceIndependentResources();
             CreateDeviceResources();
-
+            
             if (OnInitialize != null)
                 OnInitialize(this);
 
@@ -105,8 +125,7 @@ namespace HnadWriting.ComonDX
         /// <remarks>
         /// This method is called at the initialization of this instance.
         /// </remarks>
-        protected virtual void CreateDeviceIndependentResources()
-        {
+        protected virtual void CreateDeviceIndependentResources() {
 #if DEBUG
             var debugLevel = SharpDX.Direct2D1.DebugLevel.Information;
 #else
@@ -153,9 +172,7 @@ namespace HnadWriting.ComonDX
 
             // Create Direct2D device
             using (var dxgiDevice = d3dDevice.QueryInterface<SharpDX.DXGI.Device>())
-            {
                 d2dDevice = ToDispose(new SharpDX.Direct2D1.Device(d2dFactory, dxgiDevice));
-            }
 
             // Create Direct2D context
             d2dContext = ToDispose(new SharpDX.Direct2D1.DeviceContext(d2dDevice, SharpDX.Direct2D1.DeviceContextOptions.None));
@@ -179,21 +196,11 @@ namespace HnadWriting.ComonDX
                 if (dpi != value)
                 {
                     dpi = value;
-                    //d2dContext.DotsPerInch = new SharpDX.DrawingSizeF(dpi, dpi);
-                    d2dContext.DotsPerInch = new Size2F(dpi, dpi);
+                    d2dContext.DotsPerInch = new SharpDX.DrawingSizeF(dpi, dpi);
 
                     if (OnDpiChanged != null)
                         OnDpiChanged(this);
                 }
-            }
-        }
-
-        static public void SafeDispose<T>(ref T comObject) where T : class, IDisposable
-        {
-            if (comObject != null)
-            {
-                comObject.Dispose();
-                comObject = null;
             }
         }
     }

@@ -16,12 +16,16 @@ namespace HnadWriting
         TextFormat textFormat;
         Brush sceneColorBrush;
         Brush sceneColorBrush1;
+        Brush sceneColorBrush2;
+        Brush sceneColorBrush3;
         PathGeometry1 pathGeometry1;
         Stopwatch clock;
         int xx = 300;
         int switchColor = 1;
         int switchFlash = 0;
         bool testMode = false;
+
+        int totalDrawing = 0;
 
         public ShapeRenderer()
         {
@@ -38,6 +42,8 @@ namespace HnadWriting
 
             sceneColorBrush = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.Red);
             sceneColorBrush1 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.Blue);
+            sceneColorBrush2 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.White);
+            sceneColorBrush3 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.Transparent);
 
             clock = Stopwatch.StartNew();
         }
@@ -58,9 +64,30 @@ namespace HnadWriting
 
                 context2D.BeginDraw();
 
+                //if (totalDrawing == 0)
+                //{
+                //    totalDrawing++;
+                //    Debug.WriteLine("Start");
+                //}
+                //else if ((totalDrawing % 2) == 0)
+                //{
+                //    context2D.DrawGeometry(pathGeometry1, sceneColorBrush, 10.0f);
+                //    context2D.EndDraw();
+                //    context2D.BeginDraw();
+                //    totalDrawing = 2;
+                //    Debug.WriteLine("單數");
+                //}
+                //else
+                //{
+                //    //context2D.EndDraw();
+                //    //context2D.BeginDraw();
+                //    totalDrawing++;
+                //    Debug.WriteLine("偶數");
+                //}
+
                 if (EnableClear)
                 {
-                    context2D.Clear(SharpDX.Color.White);
+                    context2D.Clear(SharpDX.Color.Transparent);
                 }
 
                 #region 原來的範例 繪製文字與線條
@@ -114,26 +141,36 @@ namespace HnadWriting
                         pathSink.Close();
                     }
 
-                    context2D.TextAntialiasMode = SharpDX.Direct2D1.TextAntialiasMode.Grayscale;
-                    float t = clock.ElapsedMilliseconds / 1000.0f;
-                    xx += 50;
-                    t = xx / 1000.0f;
-                    context2D.Transform = Matrix.RotationZ((float)(Math.Cos(t * 2.0f * Math.PI * 0.5f))) * Matrix.Translation(centerX, centerY, 0);
+                    //context2D.TextAntialiasMode = SharpDX.Direct2D1.TextAntialiasMode.Grayscale;
+                    //float t = clock.ElapsedMilliseconds / 1000.0f;
+                    //xx += 50;
+                    //t = xx / 1000.0f;
+                    //context2D.Transform = Matrix.RotationZ((float)(Math.Cos(t * 2.0f * Math.PI * 0.5f))) * Matrix.Translation(centerX, centerY, 0);
 
-                    context2D.DrawText("可愛\nDirect2D1\nDirectWrite", textFormat, new RectangleF(-sizeX / 2.0f, -sizeY / 2.0f, +sizeX / 2.0f, sizeY / 2.0f), sceneColorBrush);
+                    //context2D.DrawText("可愛\nDirect2D1\nDirectWrite", textFormat, new RectangleF(-sizeX / 2.0f, -sizeY / 2.0f, +sizeX / 2.0f, sizeY / 2.0f), sceneColorBrush);
 
-                    float scaling = (float)(Math.Cos(t * 2.0 * Math.PI * 0.25) * 0.5f + 0.5f) * 0.5f + 0.5f;
-                    context2D.Transform = Matrix.Scaling(scaling) * Matrix.RotationZ(t * 1.5f) * Matrix.Translation(centerX, centerY, 0);
+                    //float scaling = (float)(Math.Cos(t * 2.0 * Math.PI * 0.25) * 0.5f + 0.5f) * 0.5f + 0.5f;
+                    //context2D.Transform = Matrix.Scaling(scaling) * Matrix.RotationZ(t * 1.5f) * Matrix.Translation(centerX, centerY, 0);
 
-                    if ((switchColor % 3) != 0)
+                    context2D.DrawGeometry(pathGeometry1, sceneColorBrush, 10.0f);
+                    Random randomGenerator = new Random((int)DateTime.Now.Ticks);
+
+                    for (int ii = 0; ii < 5000; ii++)
                     {
-                        context2D.DrawGeometry(pathGeometry1, sceneColorBrush, 10.0f);
-                        switchColor++;
+                        int p1x = randomGenerator.Next(10, 760);
+                        int p1y = randomGenerator.Next(10, 1000);
+                        int p2x = randomGenerator.Next(10, 760);
+                        int p2y = randomGenerator.Next(10, 1000);
+                        context2D.DrawLine(new Vector2(p1x, p1y), new Vector2(p2x, p2y), sceneColorBrush1, 1);
                     }
-                    else
+                    context2D.PrimitiveBlend = PrimitiveBlend.Copy;
+                    for (int ii = 0; ii < 100; ii++)
                     {
-                        context2D.DrawGeometry(pathGeometry1, sceneColorBrush1, 10.0f);
-                        switchColor = 1;
+                        int p1x = randomGenerator.Next(10, 760);
+                        int p1y = randomGenerator.Next(10, 1000);
+                        int p2x = randomGenerator.Next(10, 760);
+                        int p2y = randomGenerator.Next(10, 1000);
+                        context2D.DrawLine(new Vector2(p1x, p1y), new Vector2(p2x, p2y), sceneColorBrush3, 15);
                     }
                 }
                 else
@@ -141,6 +178,8 @@ namespace HnadWriting
                     switchFlash++;
                 }
                 #endregion
+
+                context2D.Flush();
                 context2D.EndDraw();
                 #endregion
             }

@@ -1,4 +1,5 @@
 ﻿using HnadWriting.ComonDX;
+using Scenario1Component;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,8 +34,13 @@ namespace HnadWriting
         private ShapeRenderer shapeRenderer;
         private DragHandler d2dDragHandler;
 
+        int totalDrawing = 0;
+
         頁面手寫物件軌跡 頁面手寫物件軌跡_左 = new 頁面手寫物件軌跡();
 
+        #region Scenario1
+        private Scenario1ImageSource Scenario1Drawing;
+        #endregion
         public MainPage()
         {
             this.InitializeComponent();
@@ -77,6 +84,12 @@ namespace HnadWriting
             // Callback on DpiChanged
             DisplayProperties.LogicalDpiChanged += DisplayProperties_LogicalDpiChanged;
 
+            #region Scenario1
+            Scenario1Drawing = new Scenario1ImageSource((int)cnUsingDirectXs.Width, (int)cnUsingDirectXs.Height, true);
+
+            // Use Scenario1Drawing as a source for the Ellipse shape's fill
+            cnUsingDirectXs.Background = new ImageBrush() { ImageSource = Scenario1Drawing };
+            #endregion
         }
 
         void DisplayProperties_LogicalDpiChanged(object sender)
@@ -87,11 +100,28 @@ namespace HnadWriting
         void CompositionTarget_Rendering(object sender, object e)
         {
             d2dTarget.RenderAll();
+            d2dTarget.RenderAll();
         }
 
         private void btnUsingGeometriesDrawing_Click(object sender, RoutedEventArgs e)
         {
-            d2dTarget.RenderAll();
+            if (totalDrawing == 0)
+            {
+                d2dTarget.RenderAll();
+                totalDrawing++;
+            }
+            else if ((totalDrawing % 2) == 0)
+            {
+                d2dTarget.RenderAll();
+                d2dTarget.RenderAll();
+                totalDrawing = 1;
+            }
+            else
+            {
+                d2dTarget.RenderAll();
+                d2dTarget.RenderAll();
+                totalDrawing++;
+            }
         }
 
         private void 產生手寫軌跡的測試資料()
@@ -130,6 +160,36 @@ namespace HnadWriting
 
             //    }
             //}
+        }
+
+        private void btnUsingDirectXDrawing_Click(object sender, RoutedEventArgs e)
+        {
+            // Begin updating the SurfaceImageSource
+            Scenario1Drawing.BeginDraw();
+
+            // Clear background
+            Scenario1Drawing.Clear(Colors.Transparent);
+
+            // Create a new pseudo-random number generator
+            Random randomGenerator = new Random((int)DateTime.Now.Ticks);
+            byte[] pixelValues = new byte[3]; // Represents the red, green, and blue channels of a color
+
+            // Draw 50 random retangles
+            for (int i = 0; i < 50; i++)
+            {
+                // Generate a new random color
+                randomGenerator.NextBytes(pixelValues);
+                Color color = new Color() { R = pixelValues[0], G = pixelValues[1], B = pixelValues[2], A = 255 };
+
+                // Add a new randomly colored 50x50 rectangle that will fit somewhere within the bounds of the Image1 control
+                Scenario1Drawing.FillSolidRect(
+                    color,
+                    new Rect(randomGenerator.Next((int)cnUsingDirectXs.Width - 50), randomGenerator.Next((int)cnUsingDirectXs.Height - 50), 50, 50)
+                    );
+            }
+
+            // Stop updating the SurfaceImageSource and draw its contents
+            Scenario1Drawing.EndDraw();
         }
 
     }
