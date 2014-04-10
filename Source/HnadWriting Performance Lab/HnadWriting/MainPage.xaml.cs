@@ -15,7 +15,9 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // 空白頁項目範本已記錄在 http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,6 +39,12 @@ namespace HnadWriting
         int totalDrawing = 0;
 
         頁面手寫物件軌跡 頁面手寫物件軌跡_左 = new 頁面手寫物件軌跡();
+        SolidColorBrush solidColorBrush1 = null;
+        SolidColorBrush solidColorBrush2 = null;
+        SolidColorBrush solidColorBrush3 = null;
+        SolidColorBrush solidColorBrush4 = null;
+        SolidColorBrush solidColorBrush5 = null;
+        WriteableBitmap wbContentImage;
 
         #region Scenario1
         private Scenario1ImageSource Scenario1Drawing;
@@ -51,6 +59,16 @@ namespace HnadWriting
             base.OnNavigatedTo(e);
 
             產生手寫軌跡的測試資料();
+            solidColorBrush1 = new SolidColorBrush(ColorsHelper.Parse("ff1a1a1a"));
+            solidColorBrush2 = new SolidColorBrush(ColorsHelper.Parse("ff999999"));
+            solidColorBrush3 = new SolidColorBrush(ColorsHelper.Parse("ffff0000"));
+            solidColorBrush4 = new SolidColorBrush(ColorsHelper.Parse("ff006cff"));
+            solidColorBrush5 = new SolidColorBrush(ColorsHelper.Parse("ff0da522"));
+
+            wbContentImage = BitmapFactory.New(768, 1024);
+            wbContentImage.Clear(Colors.Transparent);
+            cnUsingWriteableBitmap.Source = wbContentImage;
+
 
             d2dBrush = new ImageBrush();
             cnUsingGeometries.Background = d2dBrush;
@@ -124,6 +142,85 @@ namespace HnadWriting
             }
         }
 
+        #region XAML Line
+        private void btnUsingXAMLLineDrawing_Click(object sender, RoutedEventArgs e)
+        {
+            this.cnUsingXAMLLine.Children.Clear();
+            Random randomGenerator = new Random((int)DateTime.Now.Ticks);
+
+            for (int i = 0; i < 1500; i++)
+            {
+                int p1x = randomGenerator.Next(10, 760);
+                int p1y = randomGenerator.Next(10, 1000);
+                int p2x = randomGenerator.Next(10, 760);
+                int p2y = randomGenerator.Next(10, 1000);
+                Line line = new Line()
+                {
+                    X1 = p1x,
+                    X2 = p2x,
+                    Y1 = p1y,
+                    Y2 = p2y,
+                    StrokeThickness = 1,
+                    Stroke = solidColorBrush3,
+                };
+                this.cnUsingXAMLLine.Children.Add(line);
+            }
+        }
+
+        #endregion
+
+        #region WriteableBitmap
+        private void btnUsingWriteableBitmapDrawing_Click(object sender, RoutedEventArgs e)
+        {
+            this.cnUsingXAMLLine.Children.Clear();
+            Random randomGenerator = new Random((int)DateTime.Now.Ticks);
+
+            for (int i = 0; i < 100; i++)
+            {
+                int p1x = randomGenerator.Next(10, 760);
+                int p1y = randomGenerator.Next(10, 1000);
+                int p2x = randomGenerator.Next(10, 760);
+                int p2y = randomGenerator.Next(10, 1000);
+                wbContentImage.DrawLine(p1x, p1y, p2x, p2y, Colors.Beige);
+            }
+            //cnUsingWriteableBitmap.Source = wbContentImage;
+        }
+
+        #endregion
+        #region SharpDX
+        private void btnUsingDirectXDrawing_Click(object sender, RoutedEventArgs e)
+        {
+            // Begin updating the SurfaceImageSource
+            Scenario1Drawing.BeginDraw();
+
+            // Clear background
+            Scenario1Drawing.Clear(Colors.Transparent);
+
+            // Create a new pseudo-random number generator
+            Random randomGenerator = new Random((int)DateTime.Now.Ticks);
+            byte[] pixelValues = new byte[3]; // Represents the red, green, and blue channels of a color
+
+            // Draw 50 random retangles
+            for (int i = 0; i < 50; i++)
+            {
+                // Generate a new random color
+                randomGenerator.NextBytes(pixelValues);
+                Color color = new Color() { R = pixelValues[0], G = pixelValues[1], B = pixelValues[2], A = 255 };
+
+                // Add a new randomly colored 50x50 rectangle that will fit somewhere within the bounds of the Image1 control
+                Scenario1Drawing.FillSolidRect(
+                    color,
+                    new Rect(randomGenerator.Next((int)cnUsingDirectXs.Width - 50), randomGenerator.Next((int)cnUsingDirectXs.Height - 50), 50, 50)
+                    );
+            }
+
+            // Stop updating the SurfaceImageSource and draw its contents
+            Scenario1Drawing.EndDraw();
+        }
+
+        #endregion
+
+        #region 手寫資料模擬
         private void 產生手寫軌跡的測試資料()
         {
             Random random = new Random((int)DateTime.Now.Ticks);
@@ -162,35 +259,7 @@ namespace HnadWriting
             //}
         }
 
-        private void btnUsingDirectXDrawing_Click(object sender, RoutedEventArgs e)
-        {
-            // Begin updating the SurfaceImageSource
-            Scenario1Drawing.BeginDraw();
-
-            // Clear background
-            Scenario1Drawing.Clear(Colors.Transparent);
-
-            // Create a new pseudo-random number generator
-            Random randomGenerator = new Random((int)DateTime.Now.Ticks);
-            byte[] pixelValues = new byte[3]; // Represents the red, green, and blue channels of a color
-
-            // Draw 50 random retangles
-            for (int i = 0; i < 50; i++)
-            {
-                // Generate a new random color
-                randomGenerator.NextBytes(pixelValues);
-                Color color = new Color() { R = pixelValues[0], G = pixelValues[1], B = pixelValues[2], A = 255 };
-
-                // Add a new randomly colored 50x50 rectangle that will fit somewhere within the bounds of the Image1 control
-                Scenario1Drawing.FillSolidRect(
-                    color,
-                    new Rect(randomGenerator.Next((int)cnUsingDirectXs.Width - 50), randomGenerator.Next((int)cnUsingDirectXs.Height - 50), 50, 50)
-                    );
-            }
-
-            // Stop updating the SurfaceImageSource and draw its contents
-            Scenario1Drawing.EndDraw();
-        }
+        #endregion
 
     }
 }

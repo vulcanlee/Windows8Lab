@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="mainLayout">
+    <Grid x:Name="mainLayout" Background="#FFE8D297">
         <Viewbox>
             <Grid Width="1366" Height="768">
                 <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Using Geometries" Grid.Row="0" Grid.Column="0" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
+                <TextBlock Text="Using XAML Line" Grid.Row="0" Grid.Column="0" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
                 <TextBlock Text="Using WriteableBitmap" Grid.Row="0" Grid.Column="1" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
                 <TextBlock Text="Using SharpDX" Grid.Row="0" Grid.Column="2" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
                 <TextBlock Text="Using DirectX" Grid.Row="0" Grid.Column="3" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26.667"/>
@@ -36,6 +36,24 @@
                     </Grid>
                 </Viewbox>
 
+
+                <Button x:Name="btnUsingXAMLLineDrawing" Content="Drawing" Grid.Row="3" Grid.Column="0" 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingXAMLLineDrawing_Click" />
+                <Viewbox Grid.Row="4" Grid.Column="0">
+                    <Grid Width="768" Height="1024">
+                        <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />
+                        <Canvas x:Name="cnUsingXAMLLine" Height="1024" Width="768" />
+                    </Grid>
+                </Viewbox>
+
+                <Button x:Name="btnUsingWriteableBitmapDrawing" Content="Drawing" Grid.Row="3" Grid.Column="1" 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingWriteableBitmapDrawing_Click" />
+                <Viewbox Grid.Row="4" Grid.Column="1">
+                    <Grid Width="768" Height="1024">
+                        <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />
+                        <Image x:Name="cnUsingWriteableBitmap" Height="1024" Width="768" />
+                    </Grid>
+                </Viewbox>
 
                 <Button x:Name="btnUsingGeometriesDrawing" Content="Drawing" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingGeometriesDrawing_Click"/>
                 <Viewbox Grid.Row="4" Grid.Column="2">

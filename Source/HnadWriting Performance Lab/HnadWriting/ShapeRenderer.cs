@@ -41,7 +41,7 @@ namespace HnadWriting
         {
 
             sceneColorBrush = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.Red);
-            sceneColorBrush1 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.Blue);
+            sceneColorBrush1 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.GreenYellow);
             sceneColorBrush2 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.White);
             sceneColorBrush3 = new SolidColorBrush(deviceManager.ContextDirect2D, SharpDX.Color.Transparent);
 
@@ -155,22 +155,24 @@ namespace HnadWriting
                     context2D.DrawGeometry(pathGeometry1, sceneColorBrush, 10.0f);
                     Random randomGenerator = new Random((int)DateTime.Now.Ticks);
 
-                    for (int ii = 0; ii < 5000; ii++)
+                    int mm = randomGenerator.Next(500, 2000);
+                    for (int ii = 0; ii < mm; ii++)
                     {
                         int p1x = randomGenerator.Next(10, 760);
                         int p1y = randomGenerator.Next(10, 1000);
                         int p2x = randomGenerator.Next(10, 760);
                         int p2y = randomGenerator.Next(10, 1000);
                         context2D.DrawLine(new Vector2(p1x, p1y), new Vector2(p2x, p2y), sceneColorBrush1, 1);
+                        //context2D.DrawLine(new Vector2(10, ii), new Vector2(1010, ii), sceneColorBrush1, 1);
                     }
                     context2D.PrimitiveBlend = PrimitiveBlend.Copy;
-                    for (int ii = 0; ii < 100; ii++)
+                    for (int ii = 0; ii < 50; ii++)
                     {
                         int p1x = randomGenerator.Next(10, 760);
                         int p1y = randomGenerator.Next(10, 1000);
                         int p2x = randomGenerator.Next(10, 760);
                         int p2y = randomGenerator.Next(10, 1000);
-                        context2D.DrawLine(new Vector2(p1x, p1y), new Vector2(p2x, p2y), sceneColorBrush3, 15);
+                        context2D.DrawLine(new Vector2(p1x, p1y), new Vector2(p2x, p2y), sceneColorBrush3, 10);
                     }
                 }
                 else
