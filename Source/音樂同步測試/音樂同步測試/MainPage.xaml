@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="音樂同步測試.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:音樂同步測試"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Viewbox>
+        <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+            <MediaElement x:Name="me撥放器1" AutoPlay="False" Source="Assets/Clk_1Sec1.mp3" CurrentStateChanged="me撥放器1_CurrentStateChanged" RealTimePlayback="True"  />
+            <MediaElement x:Name="me撥放器2" AutoPlay="False" Source="Assets/Clk_1Sec2.mp3" CurrentStateChanged="me撥放器2_CurrentStateChanged" RealTimePlayback="True"  />
+            <MediaElement x:Name="me撥放器3" AutoPlay="False" Source="Assets/Clk_1Sec3.mp3" CurrentStateChanged="me撥放器3_CurrentStateChanged" RealTimePlayback="True"  />
+            <MediaElement x:Name="me撥放器4" AutoPlay="False" Source="Assets/Clk_1Sec4.mp3" CurrentStateChanged="me撥放器4_CurrentStateChanged" RealTimePlayback="True"  />
+            <StackPanel >
+                <TextBlock x:Name="tbMessage1" Text="Message" FontSize="36" Margin="20"/>
+                <TextBlock x:Name="tbMessage2" Text="Message" FontSize="36" Margin="20"/>
+                <TextBlock  Text="(A) 撥放速度" FontSize="18" Margin="20,0,20,0"/>
+                <ComboBox x:Name="撥放速度" Margin="20,0,20,20" SelectedIndex="0" SelectionChanged="撥放速度_SelectionChanged">
+                    <x:String>1.0</x:String>
+                    <x:String>0.5</x:String>
+                    <x:String>0.3</x:String>
+                    <x:String>0.1</x:String>
+                </ComboBox>
+                <TextBlock  Text="(B) 只播放一個音樂檔" FontSize="18" Margin="20,0,20,0"/>
+                <ComboBox x:Name="cb只播放一個音樂檔" Margin="20,0,20,20" SelectedIndex="0" >
+                    <x:String>No</x:String>
+                    <x:String>Yes</x:String>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                    <Button x:Name="btnBegin" Content="0秒播放" Click="btnBegin_Click"/>
+                    <Button x:Name="btnSec70" Content="70秒播放" Click="btnSec70_Click"/>
+                    <Button x:Name="btnSec150" Content="150秒播放" Click="btnSec150_Click"/>
+                    <Button x:Name="btnSec210" Content="210秒播放" Click="btnSec210_Click"/>
+                    <Button x:Name="btnSec270" Content="270秒播放" Click="btnSec270_Click"/>
+                    <Button x:Name="btn媒體撥放器狀態" Content="媒體撥放器狀態" Click="btn媒體撥放器狀態_Click" />
+                    <Button x:Name="btn監控訊息是否顯示" Content="監控訊息是否顯示" Click="btn監控訊息是否顯示_Click" />
+                    <Button x:Name="btnTest" Content="Test" Click="btnTest_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                    <Button x:Name="btn1Begin" Content="0秒播放" Click="btn1Begin_Click"/>
+                    <Button x:Name="btn1Sec270" Content="270秒播放" Click="btn1Sec270_Click"/>
+                    <Button x:Name="btn1媒體撥放器狀態" Content="媒體撥放器狀態" Click="btn媒體撥放器狀態_Click" />
+                    <Button x:Name="btn1監控訊息是否顯示" Content="監控訊息是否顯示" Click="btn監控訊息是否顯示_Click" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="20">
+                    <Button x:Name="btnXAudio2" Content="XAudio2" Click="btnXAudio2_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+</Page>
