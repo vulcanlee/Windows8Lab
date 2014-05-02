@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="MediaRecorder.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MediaRecorder"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="SteelBlue">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="0,10,10,10">
+                <TextBlock>Select Audio Format</TextBlock>
+                <ComboBox Name="AudioFormat" ItemsSource="{Binding}" MinWidth="230" Margin="10,0,0,0"
+                          SelectionChanged="AudioFormat_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,10,10">
+                <TextBlock>Select Audio Quality</TextBlock>
+                <ComboBox Name="AudioQuality" ItemsSource="{Binding}" MinWidth="230" Margin="10,0,0,0"
+                          SelectionChanged="AudioQuality_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="RecordBtn" Click="RecordBtn_Click" >Record</Button>
+                <Button Name="StopBtn" Click="StopBtn_Click" >Stop</Button>
+                <Button Name="SaveBtn" Click="SaveBtn_Click" >Save</Button>
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock>Duration</TextBlock>
+                <TextBlock Name="Duration" Text="{Binding}" Margin="10,0,0,0"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

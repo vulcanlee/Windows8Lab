@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="音樂同步測試.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:音樂同步測試"
+    xmlns:mmppf="using:Microsoft.PlayerFramework"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Viewbox>
+        <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+            <!--<mmppf:MediaPlayer x:Name="me1" Source="Assets/Clk_1Sec1.mp3" DefaultPlaybackRate="1.0" AudioDeviceType="Communications" AudioCategory="Communications" MediaQuality="HighDefinition" SlowMotionPlaybackRate="0.002" RealTimePlayback="True" UpdateInterval="0:0:0.005"/>
+            <mmppf:MediaPlayer x:Name="me2" Source="Assets/Clk_1Sec2.mp3" AutoPlay="False" DefaultPlaybackRate="1.0" AudioDeviceType="Communications" AudioCategory="Communications" MediaQuality="HighDefinition" SlowMotionPlaybackRate="0.002" RealTimePlayback="True" UpdateInterval="0:0:0.05"/>
+            <mmppf:MediaPlayer x:Name="me3" Source="Assets/Clk_1Sec3.mp3" AutoPlay="False" DefaultPlaybackRate="1.0" AudioDeviceType="Communications" AudioCategory="Communications" MediaQuality="HighDefinition" SlowMotionPlaybackRate="0.002" RealTimePlayback="True" UpdateInterval="0:0:0.05"/>
+            <mmppf:MediaPlayer x:Name="me4" Source="Assets/Clk_1Sec4.mp3" AutoPlay="False" DefaultPlaybackRate="1.0" AudioDeviceType="Communications" AudioCategory="Communications" MediaQuality="HighDefinition" SlowMotionPlaybackRate="0.002" RealTimePlayback="True" UpdateInterval="0:0:0.05"/>-->
+            <MediaElement x:Name="me1" AutoPlay="False" Source="Assets/Clk_1Sec1.mp3" CurrentStateChanged="me1_CurrentStateChanged"
+                            />
+            <MediaElement x:Name="me2" AutoPlay="False" Source="Assets/Clk_1Sec2.mp3" CurrentStateChanged="me2_CurrentStateChanged" 
+                             />
+            <MediaElement x:Name="me3" AutoPlay="False" Source="Assets/Clk_1Sec3.mp3" CurrentStateChanged="me3_CurrentStateChanged" 
+                             />
+            <MediaElement x:Name="me4" AutoPlay="False" Source="Assets/Clk_1Sec4.mp3" CurrentStateChanged="me4_CurrentStateChanged" 
+                            />
+            <StackPanel >
+                <TextBlock x:Name="tbMessage1" Text="Message" FontSize="36" Margin="20"/>
+                <TextBlock x:Name="tbMessage2" Text="Message" FontSize="36" Margin="20"/>
+                <TextBlock  Text="(A) PlaybackRate" FontSize="18" Margin="20,0,20,0"/>
+                <ComboBox x:Name="PlayingSpeed" Margin="20,0,20,20" SelectedIndex="0" SelectionChanged="PlayingSpeed_SelectionChanged">
+                    <x:String>1.0</x:String>
+                    <x:String>0.5</x:String>
+                    <x:String>0.3</x:String>
+                    <x:String>0.1</x:String>
+                </ComboBox>
+                <TextBlock  Text="(B) Play first MP3" FontSize="18" Margin="20,0,20,0"/>
+                <ComboBox x:Name="cbOnlyOneMP3" Margin="20,0,20,20" SelectedIndex="0" >
+                    <x:String>No</x:String>
+                    <x:String>Yes</x:String>
+                </ComboBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                    <Button x:Name="btnBegin" Content="0 sec" Click="btnBegin_Click"/>
+                    <Button x:Name="btnSec70" Content="70 sec" Click="btnSec70_Click"/>
+                    <Button x:Name="btnSec150" Content="150 sec" Click="btnSec150_Click"/>
+                    <Button x:Name="btnSec210" Content="210 sec" Click="btnSec210_Click"/>
+                    <Button x:Name="btnSec270" Content="270 sec" Click="btnSec270_Click"/>
+                    <Button x:Name="btnMediaElementStatus" Content="CurrentStatus" Click="btnMediaElementStatus_Click" />
+                    <Button x:Name="btnShowPosition" Content="Show Position" Click="btnShowPosition_Click" />
+                    <Button x:Name="btnTest" Content="Stop" Click="btnTest_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"  Margin="20">
+                    <Button x:Name="btnXAudio2" Content="XAudio2" Click="btnXAudio2_Click"/>
+                    <Button x:Name="btnSharpDX" Content="SharpDX" Click="btnSharpDX_Click"/>
+                    <Button x:Name="btnInitialization" Content="SharpDX" Click="btnInitialization_Click"/>
+                    <Button x:Name="btnSharpDXMP3toWav" Content="MP3toWav" Click="btnSharpDXMP3toWav_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+</Page>

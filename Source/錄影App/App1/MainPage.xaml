@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+
+            <StackPanel>
+
+
+
+                <TextBlock Style="{StaticResource BasicTextStyle}"  HorizontalAlignment='Center'  VerticalAlignment='Center'  TextAlignment='Center'	Text='Preview' />
+                <Canvas x:Name="previewCanvas1" Width="320"  Height="240" Background="Gray">
+                    <CaptureElement x:Name="previewElement1" Width="320" Height="240" />
+                </Canvas>
+
+                <Slider x:Name="sldContrast"   IsEnabled="False" ValueChanged="sldContrast_ValueChanged"  Width="207"  Margin="0,0,10,0"/>
+
+                <Slider x:Name="sldBrightness"   IsEnabled="False" ValueChanged="sldBrightness_ValueChanged"  Width="207" Margin="0,0,10,0"/>
+
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Style="{StaticResource BasicTextStyle}"  HorizontalAlignment='Center'  VerticalAlignment='Center'  TextAlignment='Center'	Text='Captured Video' />
+                <Canvas x:Name='playbackCanvas1' Width='320' Height ='240' >
+                    <MediaElement  x:Name='playbackElement1'	  Width="320"  Height="240" />
+                </Canvas>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Style="{StaticResource BasicTextStyle}"  HorizontalAlignment='Center'  VerticalAlignment='Center'  TextAlignment='Center'	Text='Captured Images' />
+                <Canvas x:Name="imageCanvas1" Width='320' Height ='240' >
+                    <Image x:Name="imageElement1"  Width="320"   Height="240"/>
+                </Canvas>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Grid.Row="1">
+            <Button x:Name="btnStartDevice1" Click="btnStartDevice_Click" IsEnabled="true"  Margin="0,0,10,0">初始化裝置</Button>
+            <Button x:Name="btnStartPreview1" Click="btnStartPreview_Click" IsEnabled="true"  Margin="0,0,10,0">啟動裝置</Button>
+            <Button x:Name="btnStartStopRecord1" Click="btnStartStopRecord_Click" IsEnabled="false"  Margin="0,0,10,0">錄影</Button>
+            <Button x:Name="btnTakePhoto1" Click="btnTakePhoto_Click" IsEnabled="false"  Margin="0,0,10,0">拍照</Button>
+            <TextBlock Name="StatusBlock" Text="1234" Width="100" Height="50"/>
+        </StackPanel>
+    </Grid>
+</Page>
