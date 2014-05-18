@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="MediaCaptureTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MediaCaptureTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid 
+          Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <StackPanel>
+                    <StackPanel>
+                        <StackPanel Margin="0,20,0,0">
+                            <TextBox x:Name="錄音錄影啟動暫停時間秒數" Header="錄音錄影啟動暫停時間秒數" PlaceholderText="請輸入 0.5 以上的浮點數值"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,20,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="照相照片寬度" Header="照相照片寬度" PlaceholderText="0代表不設定"/>
+                                <TextBox x:Name="照相照片高度" Header="照相照片高度" PlaceholderText="0代表不設定" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0,20,0,0">
+                            <ComboBox x:Name="選擇視訊編碼格式" Width="300" Header="選擇視訊編碼格式">
+                                <x:String>Auto</x:String>
+                                <x:String>HD1080p</x:String>
+                                <x:String>HD720p</x:String>
+                                <x:String>Wvga</x:String>
+                                <x:String>Ntsc</x:String>
+                                <x:String>Pal</x:String>
+                                <x:String>Vga</x:String>
+                                <x:String>Qvga</x:String>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Margin="0,20,0,0">
+                            <ComboBox x:Name="選擇錄影錄音測試模式" Width="300" Header="選擇錄影錄音測試模式">
+                                <x:String>模式1</x:String>
+                                <x:String>模式2</x:String>
+                                <x:String>模式3</x:String>
+                                <x:String>模式4</x:String>
+                                <x:String>模式5</x:String>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0">
+                        <Button x:Name="啟動錄影錄音裝置" Content="啟動錄影錄音裝置" Click="啟動錄影錄音裝置_Click"/>
+                        <Button x:Name="進行錄影錄音測試" Content="進行錄影錄音測試" Click="進行錄影錄音測試_Click"/>
+                        <Button x:Name="停止錄影錄音" Content="停止錄影錄音" Click="停止錄影錄音_Click"/>
+                        <Button x:Name="停止錄影錄音裝置" Content="停止錄影錄音裝置" Click="停止錄影錄音裝置_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <MediaElement x:Name="me撥放器背景音樂" AutoPlay="False" Stretch="Fill" Width="420" Height="230" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Source="Assets/Music0.wav" />
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <CaptureElement x:Name="previewElement1" Stretch="Fill" Margin="0,0,0,0" Width="420" Height="230" />
+                <MediaElement x:Name="me撥放器" AutoPlay="False" Stretch="Fill" Width="420" Height="230" AreTransportControlsEnabled="True" />
+                <TextBlock x:Name="處理紀錄" FontSize="16"/>
+            </StackPanel>
+  
+            <TextBox x:Name="檔案路徑" Grid.Row="1" Grid.ColumnSpan="3" ></TextBox>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="MediaElementPlayRate.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MediaElementPlayRate"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="30">
+        <Grid x:Name="mainLayout" Background="Black">
+            <MediaElement x:Name="me1" AutoPlay="False" Source="Assets/Music0.wav"/>
+            <StackPanel>
+                <TextBox x:Name="tbPlayrate" Text="1.0" />
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="btnSetPlaybackRate" Content="Set PlaybackRate" Click="btnSetPlaybackRate_Click"/>
+                    <Button x:Name="btnPlay" Content="Play" Click="btnPlay_Click"/>
+                    <Button x:Name="btnStop" Content="Stop" Click="btnStop_Click"/>
+                </StackPanel>
+                <StackPanel Margin="0,30,0,0" HorizontalAlignment="Center">
+                    <Button x:Name="btnPlayNormal" Content="Play Normal Speed without noise" Click="btnPlayNormal_Click" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnPlaySpeedUp" Content="Play more speed up with noise" Click="btnPlaySpeedUp_Click" Margin="0,20,0,0" HorizontalAlignment="Center" />
+                    <Button x:Name="btnPlaySlowDown" Content="Play more Slow Down without noise" Click="btnPlaySlowDown_Click"  Margin="0,20,0,0"  HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="0,50,0,0">
+                    <Button x:Name="btnChangeToMp3" Content="Using MP3" Click="btnChangeToMp3_Click" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToWAV" Content="Using WAV" Click="btnChangeToWAV_Click" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
