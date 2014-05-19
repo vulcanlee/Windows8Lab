@@ -41,7 +41,8 @@ namespace MediaCaptureTest
             this.InitializeComponent();
             選擇視訊編碼格式.SelectedIndex = 0;
             選擇錄影錄音測試模式.SelectedIndex = 0;
-            錄音錄影啟動暫停時間秒數.Text = "1.0";
+            選擇PhotoCaptureSource.SelectedIndex = 1;
+            錄音錄影啟動暫停時間秒數.Text = "1.5";
         }
 
         #region 錄影之相關方法
@@ -61,7 +62,19 @@ namespace MediaCaptureTest
 
                 var captureInitSettings = new MediaCaptureInitializationSettings();
                 captureInitSettings.StreamingCaptureMode = StreamingCaptureMode.AudioAndVideo;
-                captureInitSettings.PhotoCaptureSource = PhotoCaptureSource.VideoPreview;
+                string xu = 選擇PhotoCaptureSource.SelectedItem as string;
+                switch (xu)
+                {
+                    case "Auto":
+                        captureInitSettings.PhotoCaptureSource = PhotoCaptureSource.Auto;
+                        break;
+                    case "VideoPreview":
+                        captureInitSettings.PhotoCaptureSource = PhotoCaptureSource.VideoPreview;
+                        break;
+                    case "Photo":
+                        captureInitSettings.PhotoCaptureSource = PhotoCaptureSource.Photo;
+                        break;
+                }
 
                 await m_mediaCaptureMgr.InitializeAsync(captureInitSettings);
 
@@ -238,7 +251,7 @@ namespace MediaCaptureTest
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             紀錄事件("開始攝影");
             await 開始進行錄影攝影();
-            
+
             紀錄事件("開始照相");
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             await 照相();
@@ -320,7 +333,35 @@ namespace MediaCaptureTest
             紀錄事件("攝影機初始化");
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             await 攝影機初始化();
-      
+
+            紀錄事件("開始攝影");
+            await Task.Delay(TimeSpan.FromSeconds(sleep));
+            await 開始進行錄影攝影();
+
+        }
+
+        async Task 模式6()
+        {
+            double sleep = Convert.ToDouble(錄音錄影啟動暫停時間秒數.Text);
+
+            紀錄事件("");
+            發生異常需要停止Log = false;
+            紀錄事件("攝影機初始化");
+            await 攝影機初始化();
+            產生錄影檔案名稱();
+
+            紀錄事件("暫停預覽");
+            await Task.Delay(TimeSpan.FromSeconds(sleep));
+            await 停止進行錄影預覽();
+
+            紀錄事件("開始照相");
+            await Task.Delay(TimeSpan.FromSeconds(sleep));
+            await 照相();
+
+            紀錄事件("攝影機初始化");
+            await Task.Delay(TimeSpan.FromSeconds(sleep));
+            await 攝影機初始化();
+
             紀錄事件("開始攝影");
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             await 開始進行錄影攝影();
@@ -362,6 +403,9 @@ namespace MediaCaptureTest
                     break;
                 case "模式5":
                     await 模式5();
+                    break;
+                case "模式6":
+                    await 模式6();
                     break;
             }
         }
@@ -421,5 +465,44 @@ namespace MediaCaptureTest
         }
 
         #endregion
-    }
+
+        #region 音樂撥放速度測試
+
+        private void 撥放音樂_Click(object sender, RoutedEventArgs e)
+        {
+            me撥放器.Source = new Uri(string.Format("ms-appx:///Assets/music{0}.mp3", MusicID.Text));
+            me撥放器.Play();
+        }
+
+        private void 撥放音樂1_Click(object sender, RoutedEventArgs e)
+        {
+            //me撥放器.Source = new Uri(string.Format("ms-appx:///Assets/Music0.wav"));
+            me撥放器.Source = new Uri(string.Format("ms-appx:///Assets/Music{0}.wav", MusicID.Text));
+            me撥放器.Play();
+        }
+
+        private void 停止音樂_Click(object sender, RoutedEventArgs e)
+        {
+            me撥放器.Stop();
+        }
+
+        private void 音樂10_Click(object sender, RoutedEventArgs e)
+        {
+            me撥放器.PlaybackRate = 1.0;
+            me撥放器.DefaultPlaybackRate = 1.0;
+        }
+
+        private void 音樂09_Click(object sender, RoutedEventArgs e)
+        {
+            me撥放器.PlaybackRate = 0.90;
+            me撥放器.DefaultPlaybackRate = 0.90;
+        }
+
+        private void 音樂105_Click(object sender, RoutedEventArgs e)
+        {
+            me撥放器.PlaybackRate = 1.05;
+            me撥放器.DefaultPlaybackRate = 1.05;
+        }
+          #endregion
+  }
 }

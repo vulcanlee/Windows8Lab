@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="df298231-a68d-495c-8a28-0d4b5909ccf4" Publisher="CN=vulcan" Version="1.0.0.1" />
+  <Identity Name="df298231-a68d-495c-8a28-0d4b5909ccf4" Publisher="CN=vulcan" Version="1.0.0.3" />
   <Properties>
     <DisplayName>MediaCaptureTest</DisplayName>
     <PublisherDisplayName>vulcan</PublisherDisplayName>

@@ -44,12 +44,20 @@
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Margin="0,20,0,0">
+                            <ComboBox x:Name="選擇PhotoCaptureSource" Width="300" Header="選擇PhotoCaptureSource">
+                                <x:String>Auto</x:String>
+                                <x:String>VideoPreview</x:String>
+                                <x:String>Photo</x:String>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Margin="0,20,0,0">
                             <ComboBox x:Name="選擇錄影錄音測試模式" Width="300" Header="選擇錄影錄音測試模式">
                                 <x:String>模式1</x:String>
                                 <x:String>模式2</x:String>
                                 <x:String>模式3</x:String>
                                 <x:String>模式4</x:String>
                                 <x:String>模式5</x:String>
+                                <x:String>模式6</x:String>
                             </ComboBox>
                         </StackPanel>
                     </StackPanel>
@@ -62,6 +70,19 @@
                         <Button x:Name="停止錄影錄音" Content="停止錄影錄音" Click="停止錄影錄音_Click"/>
                         <Button x:Name="停止錄影錄音裝置" Content="停止錄影錄音裝置" Click="停止錄影錄音裝置_Click"/>
                     </StackPanel>
+                    <StackPanel Margin="0,10,0,0">
+                        <TextBox x:Name="MusicID" Text="0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="撥放音樂" Content="撥放MP3" Click="撥放音樂_Click"/>
+                            <Button x:Name="撥放音樂1" Content="撥放WAV" Click="撥放音樂1_Click"/>
+                            <Button x:Name="停止音樂" Content="停止音樂" Click="停止音樂_Click"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="音樂10" Content="音樂10" Click="音樂10_Click"/>
+                            <Button x:Name="音樂09" Content="音樂09" Click="音樂09_Click"/>
+                            <Button x:Name="音樂105" Content="音樂105" Click="音樂105_Click"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
 
@@ -71,7 +92,7 @@
                 <MediaElement x:Name="me撥放器" AutoPlay="False" Stretch="Fill" Width="420" Height="230" AreTransportControlsEnabled="True" />
                 <TextBlock x:Name="處理紀錄" FontSize="16"/>
             </StackPanel>
-  
+
             <TextBox x:Name="檔案路徑" Grid.Row="1" Grid.ColumnSpan="3" ></TextBox>
         </Grid>
     </Grid>
