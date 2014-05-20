@@ -59,7 +59,7 @@ namespace MediaCaptureTest
                 }
                 發生異常需要停止Log = false;
                 m_mediaCaptureMgr = new Windows.Media.Capture.MediaCapture();
-
+                //m_mediaCaptureMgr.VideoDeviceController.Zoom.
                 var captureInitSettings = new MediaCaptureInitializationSettings();
                 captureInitSettings.StreamingCaptureMode = StreamingCaptureMode.AudioAndVideo;
                 string xu = 選擇PhotoCaptureSource.SelectedItem as string;
@@ -91,6 +91,32 @@ namespace MediaCaptureTest
             }
         }
 
+        public void 偵測攝影機的Zoom設定()
+        {
+            //var xx = m_mediaCaptureMgr.VideoDeviceController;
+            //double xxs = 0;
+            //bool ff = xx.Zoom.TryGetValue(out xxs);
+            //if (ff == false)
+            //{
+            //    紀錄事件("不支援zoom設定");
+            //}
+            //else
+            //{
+            //    紀錄事件(string.Format("支援zoom設定 {0} {1} {2} {3}", xxs, xx.Zoom.Capabilities.Max, xx.Zoom.Capabilities.Min, xx.Zoom.Capabilities.Default));
+            //    xx.Zoom.TrySetValue(30);
+            //}
+
+            //xxs = 0;
+            //ff = xx.Focus.TryGetValue(out xxs);
+            //if (ff == false)
+            //{
+            //    紀錄事件("不支援Focus設定");
+            //}
+            //else
+            //{
+            //    紀錄事件(string.Format("支援Focus設定 {0}", xxs));
+            //}
+        }
         void 音訊或視訊檔案的編碼設定()
         {
             encodingProfile = null;
@@ -228,14 +254,17 @@ namespace MediaCaptureTest
             紀錄事件("攝影機初始化");
             await 攝影機初始化();
             產生錄影檔案名稱();
+            偵測攝影機的Zoom設定();
 
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             紀錄事件("開始照相");
             await 照相();
+            偵測攝影機的Zoom設定();
 
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             紀錄事件("開始攝影");
             await 開始進行錄影攝影();
+            偵測攝影機的Zoom設定();
         }
 
         async Task 模式2()
@@ -349,6 +378,7 @@ namespace MediaCaptureTest
             紀錄事件("攝影機初始化");
             await 攝影機初始化();
             產生錄影檔案名稱();
+            偵測攝影機的Zoom設定();
 
             紀錄事件("暫停預覽");
             await Task.Delay(TimeSpan.FromSeconds(sleep));
@@ -365,6 +395,9 @@ namespace MediaCaptureTest
             紀錄事件("開始攝影");
             await Task.Delay(TimeSpan.FromSeconds(sleep));
             await 開始進行錄影攝影();
+            await Task.Delay(TimeSpan.FromSeconds(sleep));
+            //紀錄事件("取得zoom");
+            //偵測攝影機的Zoom設定();
 
         }
         #endregion
@@ -503,6 +536,74 @@ namespace MediaCaptureTest
             me撥放器.PlaybackRate = 1.05;
             me撥放器.DefaultPlaybackRate = 1.05;
         }
-          #endregion
-  }
+
+        async void 取得裝置資訊(MediaStreamType MediaStreamType)
+        {
+            string line = "";
+            裝置資訊清單.Text = "";
+            // Find the highest resolution available
+            VideoEncodingProperties resolutionMax = null;
+            int max = 0;
+            var xa = m_mediaCaptureMgr.VideoDeviceController;
+            IMediaEncodingProperties xb = xa.GetMediaStreamProperties(MediaStreamType.VideoPreview);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + xb.Type + " " + "VideoPreview";
+            VideoEncodingProperties xc = xb as VideoEncodingProperties;
+            line = string.Format("W{0} H{1} ID{2} ", xc.Width, xc.Height, xc.ProfileId);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
+
+            xb = xa.GetMediaStreamProperties(MediaStreamType.VideoRecord);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + xb.Type + " " + "VideoRecord"; ;
+            xc = xb as VideoEncodingProperties;
+            line = string.Format("W{0} H{1} ID{2} ", xc.Width, xc.Height, xc.ProfileId);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
+
+            xb = xa.GetMediaStreamProperties(MediaStreamType.Photo);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + xb.Type + " " + "Photo"; ;
+            xc = xb as VideoEncodingProperties;
+            line = string.Format("W{0} H{1} ID{2} ", xc.Width, xc.Height, xc.ProfileId);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
+
+
+
+            var resolutions = xa.GetAvailableMediaStreamProperties(MediaStreamType);
+            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + "\r\n";
+            for (var i = 0; i < resolutions.Count; i++)
+            {
+                VideoEncodingProperties res = (VideoEncodingProperties)resolutions[i];
+
+                line = string.Format("W{0} H{1} ID{2} ", res.Width, res.Height, res.ProfileId);
+
+                裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
+                //Debug.WriteLine("resolution : " + res.Width + "x" + res.Height);
+                //if (res.Width * res.Height > max)
+                //{
+                //    max = (int)(res.Width * res.Height);
+                //    resolutionMax = res;
+                //}
+            }
+            //await m_mediaCaptureMgr.VideoDeviceController.SetMediaStreamPropertiesAsync(MediaStreamType.VideoPreview, resolutionMax);
+
+        }
+        #endregion
+
+        private void 取得裝置資訊Audio_Click(object sender, RoutedEventArgs e)
+        {
+            取得裝置資訊(MediaStreamType.Audio);
+        }
+
+        private void 取得裝置資訊VideoPreview_Click(object sender, RoutedEventArgs e)
+        {
+            取得裝置資訊(MediaStreamType.VideoPreview);
+        }
+
+        private void 取得裝置資訊VideoRecord_Click(object sender, RoutedEventArgs e)
+        {
+            取得裝置資訊(MediaStreamType.VideoRecord);
+        }
+
+        private void 取得裝置資訊Photo_Click(object sender, RoutedEventArgs e)
+        {
+            取得裝置資訊(MediaStreamType.Photo);
+        }
+    }
 }

@@ -87,10 +87,18 @@
             </StackPanel>
 
             <MediaElement x:Name="me撥放器背景音樂" AutoPlay="False" Stretch="Fill" Width="420" Height="230" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" Source="Assets/Music0.wav" />
-            <StackPanel Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <CaptureElement x:Name="previewElement1" Stretch="Fill" Margin="0,0,0,0" Width="420" Height="230" />
-                <MediaElement x:Name="me撥放器" AutoPlay="False" Stretch="Fill" Width="420" Height="230" AreTransportControlsEnabled="True" />
+            <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <CaptureElement x:Name="previewElement1" Stretch="Fill" Margin="0,0,0,0" Width="420" Height="200" />
+                <MediaElement x:Name="me撥放器" AutoPlay="False" Stretch="Fill" Width="420" Height="200" AreTransportControlsEnabled="True" />
                 <TextBlock x:Name="處理紀錄" FontSize="16"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <Button x:Name="取得裝置資訊Audio" Content="取得裝置資訊Audio" Click="取得裝置資訊Audio_Click"/>
+                <Button x:Name="取得裝置資訊VideoPreview" Content="取得裝置資訊VideoPreview" Click="取得裝置資訊VideoPreview_Click"/>
+                <Button x:Name="取得裝置資訊VideoRecord" Content="取得裝置資訊VideoRecord" Click="取得裝置資訊VideoRecord_Click"/>
+                <Button x:Name="取得裝置資訊Photo" Content="取得裝置資訊Photo" Click="取得裝置資訊Photo_Click"/>
+                <TextBox x:Name="裝置資訊清單" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" ></TextBox>
             </StackPanel>
 
             <TextBox x:Name="檔案路徑" Grid.Row="1" Grid.ColumnSpan="3" ></TextBox>

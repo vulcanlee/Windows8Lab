@@ -51,78 +51,20 @@ namespace MediaElementPlayRate
             playing = false;
         }
 
-        async private void btnPlaySlowDown_Click(object sender, RoutedEventArgs e)
+        private void btnChangeToMp3_Click(object sender, RoutedEventArgs e)
         {
             mainLayout.Background = new SolidColorBrush(Colors.Red);
-            if (playing == true)
-            {
-                me1.Stop();
-            await me1.WaitToCompleteAsync();
-            }
-            me1.DefaultPlaybackRate = 0.9;
-            me1.PlaybackRate = 0.9;
-            tbPlayrate.Text = "0.9";
-            me1.Play();
-            playing = true; 
-            mainLayout.Background = new SolidColorBrush(Colors.Black);
-        }
-
-        async private void btnPlaySpeedUp_Click(object sender, RoutedEventArgs e)
-        {
-            mainLayout.Background = new SolidColorBrush(Colors.Red);
-            if (playing == true)
-            {
-                me1.Stop();
-                await me1.WaitToCompleteAsync();
-            }
-            me1.DefaultPlaybackRate = 1.05;
-            me1.PlaybackRate = 1.05;
-            tbPlayrate.Text = "1.05";
-            me1.Play();
-            playing = true;
-            mainLayout.Background = new SolidColorBrush(Colors.Black);
-        }
-
-        async private void btnPlayNormal_Click(object sender, RoutedEventArgs e)
-        {
-            mainLayout.Background = new SolidColorBrush(Colors.Red);
-            if (playing == true)
-            {
-                me1.Stop();
-                await me1.WaitToCompleteAsync();
-            }
-            me1.DefaultPlaybackRate = 1.00;
-            me1.PlaybackRate = 1.0;
-            tbPlayrate.Text = "1.0";
-            me1.Play();
-            playing = true;
-            mainLayout.Background = new SolidColorBrush(Colors.Black);
-        }
-
-        async private void btnChangeToMp3_Click(object sender, RoutedEventArgs e)
-        {
-            mainLayout.Background = new SolidColorBrush(Colors.Red);
-            if (playing == true)
-            {
-                me1.Stop();
-                await me1.WaitToCompleteAsync();
-                playing = false; 
-            }
             me1.Source = new Uri(string.Format("ms-appx:///Assets/Music0.mp3"), UriKind.RelativeOrAbsolute);
             mainLayout.Background = new SolidColorBrush(Colors.Black);
+            playing = false;
         }
 
-        async private void btnChangeToWAV_Click(object sender, RoutedEventArgs e)
+        private void btnChangeToWAV_Click(object sender, RoutedEventArgs e)
         {
             mainLayout.Background = new SolidColorBrush(Colors.Red);
-            if (playing == true)
-            {
-                me1.Stop();
-                await me1.WaitToCompleteAsync();
-                playing = false;
-            }
             me1.Source = new Uri(string.Format("ms-appx:///Assets/Music0.wav"), UriKind.RelativeOrAbsolute);
             mainLayout.Background = new SolidColorBrush(Colors.Black);
+            playing = false;
         }
     }
 }
