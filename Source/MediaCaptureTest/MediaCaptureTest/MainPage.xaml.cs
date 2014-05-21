@@ -117,6 +117,7 @@ namespace MediaCaptureTest
             //    紀錄事件(string.Format("支援Focus設定 {0}", xxs));
             //}
         }
+   
         void 音訊或視訊檔案的編碼設定()
         {
             encodingProfile = null;
@@ -154,7 +155,7 @@ namespace MediaCaptureTest
             AudioStream = new InMemoryRandomAccessStream();
         }
 
-        #region 預覽相關
+        #region 預覽 & 照相相關
 
         async Task 開始進行錄影預覽()
         {
@@ -537,73 +538,11 @@ namespace MediaCaptureTest
             me撥放器.DefaultPlaybackRate = 1.05;
         }
 
-        async void 取得裝置資訊(MediaStreamType MediaStreamType)
-        {
-            string line = "";
-            裝置資訊清單.Text = "";
-            // Find the highest resolution available
-            VideoEncodingProperties resolutionMax = null;
-            int max = 0;
-            var xa = m_mediaCaptureMgr.VideoDeviceController;
-            IMediaEncodingProperties xb = xa.GetMediaStreamProperties(MediaStreamType.VideoPreview);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + xb.Type + " " + "VideoPreview";
-            VideoEncodingProperties xc = xb as VideoEncodingProperties;
-            line = string.Format("W{0} H{1} ID{2} ", xc.Width, xc.Height, xc.ProfileId);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
-
-            xb = xa.GetMediaStreamProperties(MediaStreamType.VideoRecord);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + xb.Type + " " + "VideoRecord"; ;
-            xc = xb as VideoEncodingProperties;
-            line = string.Format("W{0} H{1} ID{2} ", xc.Width, xc.Height, xc.ProfileId);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
-
-            xb = xa.GetMediaStreamProperties(MediaStreamType.Photo);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + xb.Type + " " + "Photo"; ;
-            xc = xb as VideoEncodingProperties;
-            line = string.Format("W{0} H{1} ID{2} ", xc.Width, xc.Height, xc.ProfileId);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
-
-
-
-            var resolutions = xa.GetAvailableMediaStreamProperties(MediaStreamType);
-            裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + "\r\n";
-            for (var i = 0; i < resolutions.Count; i++)
-            {
-                VideoEncodingProperties res = (VideoEncodingProperties)resolutions[i];
-
-                line = string.Format("W{0} H{1} ID{2} ", res.Width, res.Height, res.ProfileId);
-
-                裝置資訊清單.Text = 裝置資訊清單.Text + "\r\n" + line;
-                //Debug.WriteLine("resolution : " + res.Width + "x" + res.Height);
-                //if (res.Width * res.Height > max)
-                //{
-                //    max = (int)(res.Width * res.Height);
-                //    resolutionMax = res;
-                //}
-            }
-            //await m_mediaCaptureMgr.VideoDeviceController.SetMediaStreamPropertiesAsync(MediaStreamType.VideoPreview, resolutionMax);
-
-        }
         #endregion
 
-        private void 取得裝置資訊Audio_Click(object sender, RoutedEventArgs e)
+        private void 取得更多裝置資訊_Click(object sender, RoutedEventArgs e)
         {
-            取得裝置資訊(MediaStreamType.Audio);
-        }
-
-        private void 取得裝置資訊VideoPreview_Click(object sender, RoutedEventArgs e)
-        {
-            取得裝置資訊(MediaStreamType.VideoPreview);
-        }
-
-        private void 取得裝置資訊VideoRecord_Click(object sender, RoutedEventArgs e)
-        {
-            取得裝置資訊(MediaStreamType.VideoRecord);
-        }
-
-        private void 取得裝置資訊Photo_Click(object sender, RoutedEventArgs e)
-        {
-            取得裝置資訊(MediaStreamType.Photo);
+            this.Frame.Navigate(typeof(DeviceInformation));
         }
     }
 }

@@ -94,11 +94,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="2">
-                <Button x:Name="取得裝置資訊Audio" Content="取得裝置資訊Audio" Click="取得裝置資訊Audio_Click"/>
-                <Button x:Name="取得裝置資訊VideoPreview" Content="取得裝置資訊VideoPreview" Click="取得裝置資訊VideoPreview_Click"/>
-                <Button x:Name="取得裝置資訊VideoRecord" Content="取得裝置資訊VideoRecord" Click="取得裝置資訊VideoRecord_Click"/>
-                <Button x:Name="取得裝置資訊Photo" Content="取得裝置資訊Photo" Click="取得裝置資訊Photo_Click"/>
-                <TextBox x:Name="裝置資訊清單" Grid.Row="1" Grid.ColumnSpan="3" AcceptsReturn="True" ></TextBox>
+                <Button x:Name="取得更多裝置資訊" Content="取得更多裝置資訊" Click="取得更多裝置資訊_Click"/>
             </StackPanel>
 
             <TextBox x:Name="檔案路徑" Grid.Row="1" Grid.ColumnSpan="3" ></TextBox>
