@@ -19,11 +19,23 @@
                     <Button x:Name="btnPlay" Content="Play" Click="btnPlay_Click"/>
                     <Button x:Name="btnStop" Content="Stop" Click="btnStop_Click"/>
                 </StackPanel>
-                <StackPanel Margin="0,20,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="btnChangeToMp3" Content="Using MP3" Click="btnChangeToMp3_Click" HorizontalAlignment="Center"/>
-                    <Button x:Name="btnChangeToWAV" Content="Using WAV" Click="btnChangeToWAV_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
-                    <Button x:Name="btnChangeToWMA" Content="Using WMA" Click="btnChangeToWMA_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
-                </StackPanel>
+                <Grid Margin="0,20,0,0"  HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="btnChangeToMp3" Grid.Column="0" Content="Using MP3 44K" Click="btnChangeToMp3_Click" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToWAV" Grid.Column="1" Content="Using WAV 44K" Click="btnChangeToWAV_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToWMA" Grid.Column="2" Content="Using WMA 44K" Click="btnChangeToWMA_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToMp348K" Grid.Column="0" Grid.Row="1" Content="Using Mp3 48K" Click="btnChangeToMp348K_Click" Margin="0,0,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToWAV48K" Grid.Column="1" Grid.Row="1" Content="Using WAV48K" Click="btnChangeToWAV48K_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToWMA48K" Grid.Column="2" Grid.Row="1" Content="Using WMA48K" Click="btnChangeToWMA48K_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
+                </Grid>
             </StackPanel>
         </Grid>
     </Grid>

@@ -124,6 +124,9 @@
     <Content Include="Assets\Music0.mp3" />
     <Content Include="Assets\Music0.wav" />
     <Content Include="Assets\Music0.wma" />
+    <Content Include="Assets\Music0_48k.mp3" />
+    <Content Include="Assets\Music0_48k.wav" />
+    <Content Include="Assets\Music0_48k.wma" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />

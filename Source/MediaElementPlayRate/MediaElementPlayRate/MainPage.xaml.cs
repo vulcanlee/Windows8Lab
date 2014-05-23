@@ -74,5 +74,29 @@ namespace MediaElementPlayRate
             mainLayout.Background = new SolidColorBrush(Colors.Black);
             playing = false;
         }
+
+        private void btnChangeToMp348K_Click(object sender, RoutedEventArgs e)
+        {
+            mainLayout.Background = new SolidColorBrush(Colors.Red);
+            me1.Source = new Uri(string.Format("ms-appx:///Assets/Music0_48k.mp3"), UriKind.RelativeOrAbsolute);
+            mainLayout.Background = new SolidColorBrush(Colors.Black);
+            playing = false;
+        }
+
+        private void btnChangeToWAV48K_Click(object sender, RoutedEventArgs e)
+        {
+            mainLayout.Background = new SolidColorBrush(Colors.Red);
+            me1.Source = new Uri(string.Format("ms-appx:///Assets/Music0_48k.wav"), UriKind.RelativeOrAbsolute);
+            mainLayout.Background = new SolidColorBrush(Colors.Black);
+            playing = false;
+        }
+
+        private void btnChangeToWMA48K_Click(object sender, RoutedEventArgs e)
+        {
+            mainLayout.Background = new SolidColorBrush(Colors.Red);
+            me1.Source = new Uri(string.Format("ms-appx:///Assets/Music0_48k.wma"), UriKind.RelativeOrAbsolute);
+            mainLayout.Background = new SolidColorBrush(Colors.Black);
+            playing = false;
+        }
     }
 }
