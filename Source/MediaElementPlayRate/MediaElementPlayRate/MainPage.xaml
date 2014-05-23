@@ -22,6 +22,7 @@
                 <StackPanel Margin="0,20,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="btnChangeToMp3" Content="Using MP3" Click="btnChangeToMp3_Click" HorizontalAlignment="Center"/>
                     <Button x:Name="btnChangeToWAV" Content="Using WAV" Click="btnChangeToWAV_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
+                    <Button x:Name="btnChangeToWMA" Content="Using WMA" Click="btnChangeToWMA_Click" Margin="40,0,0,0" HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

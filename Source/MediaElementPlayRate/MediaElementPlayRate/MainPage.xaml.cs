@@ -66,5 +66,13 @@ namespace MediaElementPlayRate
             mainLayout.Background = new SolidColorBrush(Colors.Black);
             playing = false;
         }
+
+        private void btnChangeToWMA_Click(object sender, RoutedEventArgs e)
+        {
+            mainLayout.Background = new SolidColorBrush(Colors.Red);
+            me1.Source = new Uri(string.Format("ms-appx:///Assets/Music0.wma"), UriKind.RelativeOrAbsolute);
+            mainLayout.Background = new SolidColorBrush(Colors.Black);
+            playing = false;
+        }
     }
 }

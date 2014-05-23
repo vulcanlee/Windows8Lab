@@ -123,6 +123,7 @@
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Music0.mp3" />
     <Content Include="Assets\Music0.wav" />
+    <Content Include="Assets\Music0.wma" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
