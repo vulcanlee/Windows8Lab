@@ -2,6 +2,7 @@
 using Scenario1Component;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -45,6 +46,8 @@ namespace HnadWriting
         SolidColorBrush solidColorBrush4 = null;
         SolidColorBrush solidColorBrush5 = null;
         WriteableBitmap wbContentImage;
+
+        Stopwatch Stopwatch = new Stopwatch();
 
         #region Scenario1
         private Scenario1ImageSource Scenario1Drawing;
@@ -123,6 +126,8 @@ namespace HnadWriting
 
         private void btnUsingGeometriesDrawing_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch.Reset();
+            Stopwatch.Start();
             if (totalDrawing == 0)
             {
                 d2dTarget.RenderAll();
@@ -140,11 +145,15 @@ namespace HnadWriting
                 d2dTarget.RenderAll();
                 totalDrawing++;
             }
+            Stopwatch.Stop();
+            tbUsingGeometriesDrawing.Text = string.Format("{0} ms", Stopwatch.ElapsedMilliseconds);
         }
 
         #region XAML Line
         private void btnUsingXAMLLineDrawing_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch.Reset();
+            Stopwatch.Start();
             this.cnUsingXAMLLine.Children.Clear();
             Random randomGenerator = new Random((int)DateTime.Now.Ticks);
 
@@ -165,6 +174,8 @@ namespace HnadWriting
                 };
                 this.cnUsingXAMLLine.Children.Add(line);
             }
+            Stopwatch.Stop();
+            tbUsingXAMLLineDrawing.Text = string.Format("{0} ms", Stopwatch.ElapsedMilliseconds);
         }
 
         #endregion
@@ -172,7 +183,8 @@ namespace HnadWriting
         #region WriteableBitmap
         private void btnUsingWriteableBitmapDrawing_Click(object sender, RoutedEventArgs e)
         {
-            this.cnUsingXAMLLine.Children.Clear();
+            Stopwatch.Reset();
+            Stopwatch.Start();
             Random randomGenerator = new Random((int)DateTime.Now.Ticks);
 
             for (int i = 0; i < 100; i++)
@@ -184,6 +196,8 @@ namespace HnadWriting
                 wbContentImage.DrawLine(p1x, p1y, p2x, p2y, Colors.Beige);
             }
             //cnUsingWriteableBitmap.Source = wbContentImage;
+            Stopwatch.Stop();
+            tbUsingWriteableBitmapDrawing.Text = string.Format("{0} ms", Stopwatch.ElapsedMilliseconds);
         }
 
         #endregion
