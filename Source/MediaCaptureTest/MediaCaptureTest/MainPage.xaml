@@ -95,6 +95,7 @@
 
             <StackPanel Grid.Column="2">
                 <Button x:Name="取得更多裝置資訊" Content="取得更多裝置資訊" Click="取得更多裝置資訊_Click"/>
+                <Button x:Name="內建CameraCaptureUI" Content="內建CameraCaptureUI" Click="內建CameraCaptureUI_Click"/>
             </StackPanel>
 
             <TextBox x:Name="檔案路徑" Grid.Row="1" Grid.ColumnSpan="3" ></TextBox>

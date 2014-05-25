@@ -544,5 +544,11 @@ namespace MediaCaptureTest
         {
             this.Frame.Navigate(typeof(DeviceInformation));
         }
+
+        private async void 內建CameraCaptureUI_Click(object sender, RoutedEventArgs e)
+        {
+            CameraCaptureUI CameraCaptureUI = new CameraCaptureUI();
+            await CameraCaptureUI.CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
+        }
     }
 }
