@@ -363,6 +363,7 @@ namespace MediaCaptureTest
                 //if (320 == res.Width && 240 == res.Height)
                 {
                     resNew = res;
+                    break;
                 }
             }
 

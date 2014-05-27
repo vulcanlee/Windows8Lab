@@ -155,7 +155,7 @@ namespace HnadWriting
                     context2D.DrawGeometry(pathGeometry1, sceneColorBrush, 10.0f);
                     Random randomGenerator = new Random((int)DateTime.Now.Ticks);
 
-                    int mm = randomGenerator.Next(500, 2000);
+                    int mm = randomGenerator.Next(1500, 2000);
                     for (int ii = 0; ii < mm; ii++)
                     {
                         int p1x = randomGenerator.Next(10, 760);
