@@ -47,10 +47,13 @@ namespace HnadWriting
         public List<手寫物件> 手寫物件s { get; set; }
         public double StrokeThickness { get; set; }
         public 手寫物件調色盤 手寫物件調色盤 { get; set; }
+        public int 寫入順序編號 { get; set; }
+        public 手或筆與橡皮擦 手或筆與橡皮擦 { get; set; }
 
         public 手寫物件軌跡()
         {
             手寫物件s = new List<手寫物件>();
+            手或筆與橡皮擦 = 手或筆與橡皮擦.筆;
         }
 
         public SolidColorBrush 橡皮擦的SolidColorBrush()

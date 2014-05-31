@@ -61,6 +61,7 @@
                 <TextBlock x:Name="tbUsingGeometriesDrawing" Grid.Row="2" Grid.Column="2" 
                            HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF2D3EEA" FontSize="16"/>
                 <Button x:Name="btnUsingGeometriesDrawing" Content="Drawing" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingGeometriesDrawing_Click"/>
+                <Button x:Name="btnHandwriteDrawing" Content="Handwrite" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnHandwriteDrawing_Click"/>
                 <Viewbox Grid.Row="4" Grid.Column="2">
                     <Grid Width="768" Height="1024">
                         <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />

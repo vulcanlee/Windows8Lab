@@ -81,9 +81,9 @@ namespace HnadWriting
             deviceManager = new DeviceManager();
 
             shapeRenderer = new ShapeRenderer();
-
-            int pixelWidth = (int)(cnUsingGeometries.Width * DisplayProperties.LogicalDpi / 96.0);
-            int pixelHeight = (int)(cnUsingGeometries.Height * DisplayProperties.LogicalDpi / 96.0);
+            DisplayInformation DisplayInformation = Windows.Graphics.Display.DisplayInformation.GetForCurrentView();
+            int pixelWidth = (int)(cnUsingGeometries.Width * DisplayInformation.LogicalDpi / 96.0);
+            int pixelHeight = (int)(cnUsingGeometries.Height * DisplayInformation.LogicalDpi / 96.0);
 
             d2dTarget = new SurfaceImageSourceTarget(pixelWidth, pixelHeight);
             d2dBrush.ImageSource = d2dTarget.ImageSource;
@@ -274,6 +274,11 @@ namespace HnadWriting
         }
 
         #endregion
+
+        private void btnHandwriteDrawing_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BasicPage1));
+        }
 
     }
 }
