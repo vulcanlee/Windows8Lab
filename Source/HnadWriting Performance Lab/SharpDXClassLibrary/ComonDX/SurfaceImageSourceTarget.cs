@@ -91,7 +91,7 @@ namespace HnadWriting.ComonDX
                         viewData.RenderTargetSize = new Size(desc.Width, desc.Height);
                         viewData.RenderTargetView = ToDispose(new SharpDX.Direct3D11.RenderTargetView(DeviceManager.DeviceDirect3D, backBuffer));
                     }
-
+                    
                     // Create a descriptor for the depth/stencil buffer.
                     // Allocate a 2-D surface as the depth/stencil buffer.
                     // Create a DepthStencil view on this surface to use on bind.
@@ -104,7 +104,7 @@ namespace HnadWriting.ComonDX
                         Width = (int)viewData.RenderTargetSize.Width,
                         Height = (int)viewData.RenderTargetSize.Height,
                         SampleDescription = new SharpDX.DXGI.SampleDescription(1, 0),
-                        BindFlags = SharpDX.Direct3D11.BindFlags.DepthStencil,
+                        BindFlags = SharpDX.Direct3D11.BindFlags.DepthStencil, 
                     }))
                         viewData.DepthStencilView = ToDispose(new SharpDX.Direct3D11.DepthStencilView(DeviceManager.DeviceDirect3D, depthBuffer, new SharpDX.Direct3D11.DepthStencilViewDescription() { Dimension = SharpDX.Direct3D11.DepthStencilViewDimension.Texture2D }));
 

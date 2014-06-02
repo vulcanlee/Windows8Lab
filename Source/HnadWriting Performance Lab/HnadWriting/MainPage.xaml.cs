@@ -280,5 +280,10 @@ namespace HnadWriting
             this.Frame.Navigate(typeof(BasicPage1));
         }
 
+        private void btnUsingXAMLHandwriteDrawing_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BasicPage2));
+        }
+
     }
 }

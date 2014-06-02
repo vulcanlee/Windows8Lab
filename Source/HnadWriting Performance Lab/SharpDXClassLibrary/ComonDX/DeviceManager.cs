@@ -118,7 +118,7 @@ namespace HnadWriting.ComonDX
             SafeDispose(ref wicFactory);
 
             // Allocate new references
-            d2dFactory = ToDispose(new SharpDX.Direct2D1.Factory1(SharpDX.Direct2D1.FactoryType.SingleThreaded, debugLevel));
+            d2dFactory = ToDispose(new SharpDX.Direct2D1.Factory1(SharpDX.Direct2D1.FactoryType.MultiThreaded, debugLevel));
             dwriteFactory = ToDispose(new SharpDX.DirectWrite.Factory(SharpDX.DirectWrite.FactoryType.Shared));
             wicFactory = ToDispose(new SharpDX.WIC.ImagingFactory2());
         }
@@ -158,7 +158,7 @@ namespace HnadWriting.ComonDX
             }
 
             // Create Direct2D context
-            d2dContext = ToDispose(new SharpDX.Direct2D1.DeviceContext(d2dDevice, SharpDX.Direct2D1.DeviceContextOptions.None));
+            d2dContext = ToDispose(new SharpDX.Direct2D1.DeviceContext(d2dDevice, SharpDX.Direct2D1.DeviceContextOptions.EnableMultithreadedOptimizations));
         }
 
         /// <summary>

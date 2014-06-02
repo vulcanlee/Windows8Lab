@@ -40,6 +40,8 @@
                            HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF2D3EEA" FontSize="16"/>
                 <Button x:Name="btnUsingXAMLLineDrawing" Content="Drawing" Grid.Row="1" Grid.Column="0" 
                         VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingXAMLLineDrawing_Click" />
+                <Button x:Name="btnUsingXAMLHandwriteDrawing" Content="Drawing" Grid.Row="3" Grid.Column="0" 
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red" Click="btnUsingXAMLHandwriteDrawing_Click" />
                 <Viewbox Grid.Row="4" Grid.Column="0">
                     <Grid Width="768" Height="1024">
                         <Image Source="Assets/BingWallpaper.jpg" Stretch="UniformToFill" />

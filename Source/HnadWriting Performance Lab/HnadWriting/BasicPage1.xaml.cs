@@ -47,6 +47,7 @@ namespace HnadWriting
         int totalDrawing = 0;
         DateTime 最後繪圖時間 = DateTime.Now;
 
+        DispatcherTimer _timer = new DispatcherTimer();
         #endregion
         #endregion
 
@@ -79,6 +80,9 @@ namespace HnadWriting
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
             this.正在手寫中 = false;
+            //_timer.Tick += _timer_Tick;
+            //_timer.Interval = TimeSpan.FromMilliseconds(2000);
+            //_timer.Start();
         }
 
         #region 頁面狀態
@@ -209,12 +213,21 @@ namespace HnadWriting
                     }
                     PreviousContactPoint = CurrentContactPoint;
 
-                    if ((DateTime.Now-最後繪圖時間).TotalSeconds >= 1.0)
-                    {
-                        最後繪圖時間 = DateTime.Now;
-                        更新SharpDx面板();
-                    }
+                    //if ((DateTime.Now-最後繪圖時間).TotalSeconds >= 1.0)
+                    //{
+                    //    Debug.WriteLine(最後繪圖時間);
+                    //    最後繪圖時間 = DateTime.Now;
+                    //    更新SharpDx面板();
+                    //}
                 }
+            }
+        }
+
+        void _timer_Tick(object sender, object e)
+        {
+            if (this.正在手寫中 == true)
+            {
+                更新SharpDx面板();
             }
         }
 
@@ -224,11 +237,15 @@ namespace HnadWriting
             PenID = 0;
             e.Handled = true;
             this.正在手寫中 = false;
+            totalDrawing = 0;
+            更新SharpDx面板();
         }
 
         private void canvas左邊手寫畫板_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
         {
             this.正在手寫中 = false;
+            totalDrawing = 0;
+            更新SharpDx面板();
         }
 
         private void canvas左邊手寫畫板_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -238,6 +255,11 @@ namespace HnadWriting
         }
 
         #endregion
+
+        void CompositionTarget_Rendering(object sender, object e)
+        {
+            d2dTarget.RenderAll();
+        }
 
         #endregion
 
@@ -265,6 +287,7 @@ namespace HnadWriting
             //cnUsingGeometries.Width = 1024;
             //cnUsingGeometries.Height = 768;
             DisplayInformation DisplayInformation = Windows.Graphics.Display.DisplayInformation.GetForCurrentView();
+            Debug.WriteLine("DPI {0}", DisplayInformation.LogicalDpi);
             int pixelWidth = (int)(canvas左邊手寫畫板.Width * DisplayInformation.LogicalDpi / 96.0);
             int pixelHeight = (int)(canvas左邊手寫畫板.Height * DisplayInformation.LogicalDpi / 96.0);
 
@@ -282,13 +305,14 @@ namespace HnadWriting
             deviceManager.Initialize(DisplayInformation.LogicalDpi);
 
             // Setup rendering callback
-            //CompositionTarget.Rendering += CompositionTarget_Rendering;
+            CompositionTarget.Rendering += CompositionTarget_Rendering;
 
             // Callback on DpiChanged
         }
 
         public void 更新SharpDx面板()
         {
+            Debug.WriteLine(totalDrawing);
             if (totalDrawing == 0)
             {
                 d2dTarget.RenderAll();
@@ -297,13 +321,13 @@ namespace HnadWriting
             else if ((totalDrawing % 2) == 0)
             {
                 d2dTarget.RenderAll();
-                d2dTarget.RenderAll();
+                //d2dTarget.RenderAll();
                 totalDrawing = 1;
             }
             else
             {
                 d2dTarget.RenderAll();
-                d2dTarget.RenderAll();
+                //d2dTarget.RenderAll();
                 totalDrawing++;
             }
         }
