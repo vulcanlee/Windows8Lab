@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:未來信Win81通用.Common" 
+    xmlns:Converters="using:VLabLibrary.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+	<Converters:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter"/>
+	<Converters:StringToDateTimeOffsetConverter x:Key="StringToDateTimeOffsetConverter"/>
+	<Converters:StringBoolToVisibilityConverter x:Key="StringBoolToVisibilityConverter"/>
+	<Converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+    <!--========================= 格子樣板定義 =========================-->
+    <!--========================= 系統運作參數 =========================-->
+	<Converters:IntZeroToVisibilityConverter x:Key="IntZeroToVisibilityConverter"/>
+    <!-- 當游標移到該物件上的時候，要切換的顏色 -->
+	<SolidColorBrush x:Key="PointerOverCellColor">#FFFFB850</SolidColorBrush>
+	<SolidColorBrush x:Key="PageBackgroundColor">#FF7DCDF3</SolidColorBrush>
+    <!-- 每個格子的最小尺寸 -->
+	<x:String x:Key="CellWidth">5</x:String>
+	<x:String x:Key="CellHeigh">5</x:String>
+
+</ResourceDictionary>

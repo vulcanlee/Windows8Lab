@@ -128,23 +128,28 @@ namespace HnadWriting
         {
             Stopwatch.Reset();
             Stopwatch.Start();
-            if (totalDrawing == 0)
-            {
-                d2dTarget.RenderAll();
-                totalDrawing++;
-            }
-            else if ((totalDrawing % 2) == 0)
-            {
-                d2dTarget.RenderAll();
-                d2dTarget.RenderAll();
-                totalDrawing = 1;
-            }
-            else
-            {
-                d2dTarget.RenderAll();
-                d2dTarget.RenderAll();
-                totalDrawing++;
-            }
+
+
+            d2dTarget.RenderAll();
+            //if (totalDrawing == 0)
+            //{
+            //    d2dTarget.RenderAll();
+            //    totalDrawing++;
+            //}
+            //else if ((totalDrawing % 2) == 0)
+            //{
+            //    d2dTarget.RenderAll();
+            //    d2dTarget.RenderAll();
+            //    totalDrawing = 1;
+            //}
+            //else
+            //{
+            //    d2dTarget.RenderAll();
+            //    d2dTarget.RenderAll();
+            //    totalDrawing++;
+            //}
+
+
             Stopwatch.Stop();
             tbUsingGeometriesDrawing.Text = string.Format("{0} ms", Stopwatch.ElapsedMilliseconds);
         }

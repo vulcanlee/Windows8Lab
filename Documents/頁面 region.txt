@@ -1,0 +1,65 @@
+﻿        #region Member 欄位
+
+        #region Constants 常數
+        #endregion
+
+        #region Field 欄位
+        #endregion
+
+        #region Property 屬性
+        #endregion
+
+        #region Events 事件
+        #endregion
+
+        #region Types 型別
+        #endregion
+
+        #region Indexers 索引
+        #endregion
+
+        #region Operators 運算子
+        #endregion
+
+        #endregion
+
+        #region Constructors & Destructors
+        #endregion
+
+        #region 頁面事件
+        #endregion
+
+        #region 互動事件
+
+        #region UI互動事件
+        #endregion
+
+        #region Combobox 選擇項目的處理事件
+        #endregion
+
+        #region 應用程式列的按鈕處理事件
+        #endregion
+
+        #region 回上一頁的按鈕，要檢查資料是否已經有遭修改過
+        #endregion
+
+        #region 其他應用事件
+        #endregion
+ 
+        #endregion
+
+        #region Method 頁面方法
+
+        #region 資料初始化與處理方法
+        #endregion
+
+        #region 資料驗證與處理方法
+        #endregion
+
+        #region 一般方法
+        #endregion
+
+        #endregion
+
+        #region 除錯之用
+        #endregion
