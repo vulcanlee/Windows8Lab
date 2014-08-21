@@ -43,6 +43,7 @@ namespace 使用強行別取得屬性的名稱與值
     {
         /// <summary>
         /// 將指定強型別的屬性，寫入到 Dictionary
+        /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="dictionary"></param>
