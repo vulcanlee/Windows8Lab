@@ -41,6 +41,12 @@ namespace 使用強行別取得屬性的名稱與值
 
     public static class DirectionExt
     {
+        /// <summary>
+        /// 將指定強型別的屬性，寫入到 Dictionary
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dictionary"></param>
+        /// <param name="e"></param>
         public static void AddProperty<T>(this Dictionary<string, string> dictionary, Expression<Func<T>> e)
         {
             var member = (MemberExpression)e.Body;
