@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "客製有動畫的按鈕", "客製有動畫的按鈕", "{F1D2E3F4-2C6B-44F9-9371-013F9CF720D1}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "客製有動畫的按鈕.Shared", "客製有動畫的按鈕\客製有動畫的按鈕.Shared\客製有動畫的按鈕.Shared.shproj", "{41DB41CC-73EB-4FEE-AAAC-1A292E932B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "客製有動畫的按鈕.Windows", "客製有動畫的按鈕\客製有動畫的按鈕.Windows\客製有動畫的按鈕.Windows.csproj", "{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "客製有動畫的按鈕.WindowsPhone", "客製有動畫的按鈕\客製有動畫的按鈕.WindowsPhone\客製有動畫的按鈕.WindowsPhone.csproj", "{15AB211A-1C03-466B-AC0C-DB89CB2D919D}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		客製有動畫的按鈕\客製有動畫的按鈕.Shared\客製有動畫的按鈕.Shared.projitems*{15ab211a-1c03-466b-ac0c-db89cb2d919d}*SharedItemsImports = 4
+		客製有動畫的按鈕\客製有動畫的按鈕.Shared\客製有動畫的按鈕.Shared.projitems*{31d5aa02-642b-4b30-8d8f-8d30f8f240fd}*SharedItemsImports = 4
+		客製有動畫的按鈕\客製有動畫的按鈕.Shared\客製有動畫的按鈕.Shared.projitems*{41db41cc-73eb-4fee-aaac-1a292e932b45}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|ARM.ActiveCfg = Debug|ARM
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|ARM.Build.0 = Debug|ARM
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|ARM.Deploy.0 = Debug|ARM
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|x64.ActiveCfg = Debug|x64
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|x64.Build.0 = Debug|x64
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|x64.Deploy.0 = Debug|x64
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|x86.ActiveCfg = Debug|x86
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|x86.Build.0 = Debug|x86
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Debug|x86.Deploy.0 = Debug|x86
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|ARM.ActiveCfg = Release|ARM
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|ARM.Build.0 = Release|ARM
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|ARM.Deploy.0 = Release|ARM
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|x64.ActiveCfg = Release|x64
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|x64.Build.0 = Release|x64
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|x64.Deploy.0 = Release|x64
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|x86.ActiveCfg = Release|x86
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|x86.Build.0 = Release|x86
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD}.Release|x86.Deploy.0 = Release|x86
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|ARM.Build.0 = Debug|ARM
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|ARM.Deploy.0 = Debug|ARM
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|x86.ActiveCfg = Debug|x86
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|x86.Build.0 = Debug|x86
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Debug|x86.Deploy.0 = Debug|x86
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|ARM.ActiveCfg = Release|ARM
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|ARM.Build.0 = Release|ARM
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|ARM.Deploy.0 = Release|ARM
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|x64.ActiveCfg = Release|Any CPU
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|x86.ActiveCfg = Release|x86
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|x86.Build.0 = Release|x86
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41DB41CC-73EB-4FEE-AAAC-1A292E932B45} = {F1D2E3F4-2C6B-44F9-9371-013F9CF720D1}
+		{31D5AA02-642B-4B30-8D8F-8D30F8F240FD} = {F1D2E3F4-2C6B-44F9-9371-013F9CF720D1}
+		{15AB211A-1C03-466B-AC0C-DB89CB2D919D} = {F1D2E3F4-2C6B-44F9-9371-013F9CF720D1}
+	EndGlobalSection
+EndGlobal
