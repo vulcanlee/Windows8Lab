@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Media;
 
 namespace 客製有動畫的按鈕
 {
-    class Button3Img:Button
+    public class Button3Img : Button
     {
         Image ig = new Image();
 

@@ -1,0 +1,15 @@
+﻿<Application
+    x:Class="WinRTControlsList.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinRTControlsList"
+    xmlns:localData="using:WinRTControlsList.Data">
+
+    <Application.Resources>
+
+        <!-- 應用程式特定資源 -->
+
+        <x:String x:Key="AppName">WinRTControlsList</x:String>
+
+    </Application.Resources>
+</Application>

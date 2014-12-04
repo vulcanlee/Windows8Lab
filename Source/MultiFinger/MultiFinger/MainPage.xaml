@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="MultiFinger.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MultiFinger"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid >
+        <Rectangle x:Name="rect觸控測試區" Margin="100"
+                   ManipulationStarting="Grid_ManipulationStarting" 
+                   ManipulationStarted="Grid_ManipulationStarted" 
+                   ManipulationCompleted="Grid_ManipulationCompleted"
+                   Fill="#FF1CA842" ManipulationMode="All" 
+                   PointerPressed="Rectangle_PointerPressed" 
+                   PointerReleased="Rectangle_PointerReleased" 
+                   PointerCanceled="Rectangle_PointerCanceled"
+                   PointerCaptureLost="Rectangle_PointerCaptureLost"
+                   PointerEntered="Rectangle_PointerEntered"
+                   PointerExited="Rectangle_PointerExited"
+                   PointerMoved="Rectangle_PointerMoved" ManipulationInertiaStarting="rect觸控測試區_ManipulationInertiaStarting" ManipulationDelta="rect觸控測試區_ManipulationDelta"/>
+        
+        <TextBlock x:Name="tbk手勢結果" Text="沒有手勢操作" FontSize="40" Foreground="#FF2347A6" Margin="20" VerticalAlignment="Top" />
+    </Grid>
+</Page>

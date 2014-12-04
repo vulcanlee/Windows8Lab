@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="50b0dfed-0603-4c5e-b027-392770e92a54" Publisher="CN=vulcan" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>WinRTControlsList</DisplayName>
+    <PublisherDisplayName>vulcan</PublisherDisplayName>
+    <Logo>Assets\Logo\StoreLogo50x50.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="WinRTControlsList.App">
+      <m2:VisualElements DisplayName="WinRTControlsList" Square150x150Logo="Assets\Logo\Square150x150Logo.png" Square30x30Logo="Assets\Logo\Square30x30Logo.png" Description="WinRTControlsList" ForegroundText="light" BackgroundColor="#464646" ToastCapable="true">
+        <m2:DefaultTile Square310x310Logo="Assets\Logo\Square310x310Logo.png" Wide310x150Logo="Assets\Logo\Wide310x150Logo.png" Square70x70Logo="Assets\Logo\Square70x70Logo.png" ShortName="視覺控制項">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+            <m2:ShowOn Tile="wide310x150Logo" />
+            <m2:ShowOn Tile="square310x310Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="Assets\Logo\SplashScreen.png" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
