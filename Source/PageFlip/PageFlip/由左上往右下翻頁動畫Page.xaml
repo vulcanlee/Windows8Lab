@@ -1,0 +1,128 @@
+﻿<Page
+    x:Class="PageFlip.由左上往右下翻頁動畫Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PageFlip"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Light" >
+
+    <Page.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">My Application</x:String>
+        <Storyboard x:Name="Storyboard由上往下">
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="img左邊手寫畫板翻頁動畫背景">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1024"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="img左邊手寫畫板翻頁動畫">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1024"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="img左邊手寫畫板翻頁動畫背景">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="768"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="img左邊手寫畫板翻頁動畫">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="768"/>
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="img右邊手寫畫板翻頁動畫背景">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1024"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="img右邊手寫畫板翻頁動畫">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1024"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="img右邊手寫畫板翻頁動畫背景">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="768"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames EnableDependentAnimation="True" Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="img右邊手寫畫板翻頁動畫">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="768"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Viewbox Margin="20">
+                    <Grid Width="768" Height="1024" >
+                        <Image Source="Assets/bg_book_half_g.png" Width="768" Height="1024" Stretch="Fill" />
+                        <Image x:Name="img左邊手寫畫板原始圖片" Source="Assets/page_0.png"  Height="1024"  
+						Stretch="None" VerticalAlignment="Top" Width="768" HorizontalAlignment="Left" >
+                            <Image.Clip>
+                                <RectangleGeometry x:Name="RectangleGeometry左邊頁面" Rect="0,0,768,1024">
+                                    <RectangleGeometry.Transform>
+                                        <TranslateTransform x:Name="img左邊手寫畫板翻頁動畫ClipTransform"/>
+                                    </RectangleGeometry.Transform>
+                                </RectangleGeometry>
+                            </Image.Clip>
+                        </Image>
+                        <Image x:Name="img左邊手寫畫板翻頁動畫背景" Source="Assets/bg_book_half_g.png" Stretch="Fill" 
+                               VerticalAlignment="Top" HorizontalAlignment="Left"
+                               Height="0" Width="0" />
+                        <Image x:Name="img左邊手寫畫板翻頁動畫" Source="Assets/page_2.png" Stretch="None" 
+                               VerticalAlignment="Top" HorizontalAlignment="Left"
+                               Height="0" Width="0" />
+                    </Grid>
+                </Viewbox>
+                <Viewbox Margin="50,20,20,20">
+                    <Grid Width="768" Height="1024" >
+                        <Image Source="Assets/bg_book_half_g.png" Width="768" Height="1024" Stretch="Fill" />
+                        <Image x:Name="img右邊手寫畫板原始圖片" Source="Assets/page_1.png"  Height="1024"  
+						Stretch="None" VerticalAlignment="Top" Width="768" HorizontalAlignment="Left" >
+                            <Image.Clip>
+                                <RectangleGeometry x:Name="RectangleGeometry右邊頁面" Rect="0,0,768,1024">
+                                    <RectangleGeometry.Transform>
+                                        <TranslateTransform x:Name="img右邊手寫畫板翻頁動畫ClipTransform"/>
+                                    </RectangleGeometry.Transform>
+                                </RectangleGeometry>
+                            </Image.Clip>
+                        </Image>
+                        <Image x:Name="img右邊手寫畫板翻頁動畫背景" Source="Assets/bg_book_half_g.png" Stretch="Fill" 
+                               VerticalAlignment="Top" HorizontalAlignment="Left"
+                               Height="0" Width="0" />
+                        <Image x:Name="img右邊手寫畫板翻頁動畫" Source="Assets/page_3.png" Stretch="None" 
+                               VerticalAlignment="Top" HorizontalAlignment="Left"
+                               Height="0" />
+                    </Grid>
+                </Viewbox>
+                <StackPanel Orientation="Vertical" Margin="50,0,0,0">
+                    <Button x:Name="btnStart" Content="翻頁" Click="btnStart_Click" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Margin="39,59,39,0"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button" Click="backButton_Click"/>
+            <TextBlock x:Name="pageTitle" Text="由左上往右下翻頁動畫" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+        </Grid>
+    </Grid>
+</Page>

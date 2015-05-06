@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="PageFlip.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PageFlip"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btn由上往下翻頁動畫" Content="由上往下翻頁動畫" Click="btn由上往下翻頁動畫_Click" />
+            <Button x:Name="btn由左上往右下翻頁動畫" Content="由左上往右下翻頁動畫" Click="btn由左上往右下翻頁動畫_Click" />
+            <Button x:Name="btn由左往右翻頁動畫Page" Content="由左往右翻頁動畫Page" Click="btn由左往右翻頁動畫Page_Click" />
+            <Button x:Name="btn遮罩翻頁動畫Page" Content="遮罩翻頁動畫Page" Click="btn遮罩翻頁動畫Page_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

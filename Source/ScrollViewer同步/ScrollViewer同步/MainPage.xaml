@@ -1,0 +1,166 @@
+﻿<Page
+    x:Class="ScrollViewer同步.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ScrollViewer同步"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="50,100,50,50">
+        <StackPanel Orientation="Vertical">
+            <ScrollViewer x:Name="sv1"
+                HorizontalScrollMode="Disabled" HorizontalScrollBarVisibility="Hidden" Width="800"
+                           VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" ViewChanging="ScrollViewer_ViewChanging" ViewChanged="sv1_ViewChanged">
+                <StackPanel Orientation="Horizontal" Background="Blue">
+                    <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                    <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                </StackPanel>
+            </ScrollViewer>
+            <ScrollViewer x:Name="sv2"
+                Height="100" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible" Width="800" ViewChanging="sv2_ViewChanging" ViewChanged="sv2_ViewChanged">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="a11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="b11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="c11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="d11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="e11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="f11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="g11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="h11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="i11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="j11111111" FontSize="24" Width="150"/>
+                        <TextBlock Text="k11111111" FontSize="24" Width="150"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Page>

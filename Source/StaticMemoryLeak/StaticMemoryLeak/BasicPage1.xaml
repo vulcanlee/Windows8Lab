@@ -1,0 +1,83 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="StaticMemoryLeak.BasicPage1"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StaticMemoryLeak"
+    xmlns:common="using:StaticMemoryLeak.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
+        <x:String x:Key="AppName">產生靜態 List 資料</x:String>
+    </Page.Resources>
+
+    <!--
+        This grid acts as a root panel for the page that defines two rows:
+        * Row 0 contains the back button and page title
+        * Row 1 contains the rest of the page layout
+    -->
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btn靜態資料產生"
+                    Width="300" Height="50" Content="靜態資料產生" FontSize="30" Click="btn靜態資料產生_Click"/>
+                <Button x:Name="btn靜態資料清除"
+                    Width="300" Height="50" Content="靜態資料清除" FontSize="30" Click="btn靜態資料清除_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btn動態資料產生"
+                    Width="300" Height="50" Content="動態資料產生" FontSize="30" Click="btn動態資料產生_Click"/>
+                <Button x:Name="btn動態資料清除"
+                    Width="300" Height="50" Content="動態資料清除" FontSize="30" Click="btn動態資料清除_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btnJson靜態資料產生"
+                    Width="300" Height="50" Content="Json靜態資料產生" FontSize="30" Click="btnJson靜態資料產生_Click"/>
+                <Button x:Name="btnJson靜態資料清除"
+                    Width="300" Height="50" Content="Json靜態資料清除" FontSize="30" Click="btnJson靜態資料清除_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnJson1靜態資料產生"
+                    Width="300" Height="50" Content="Json1靜態資料產生" FontSize="30" Click="btnJson1靜態資料產生_Click"/>
+                <Button x:Name="btnJson1靜態資料清除"
+                    Width="300" Height="50" Content="Json1靜態資料清除" FontSize="30" Click="btnJson靜態資料清除_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btnJson動態資料產生"
+                    Width="300" Height="50" Content="Json動態資料產生" FontSize="30" Click="btnJson動態資料產生_Click"/>
+                <Button x:Name="btnJson動態資料清除"
+                    Width="300" Height="50" Content="Json動態資料清除" FontSize="30" Click="btnJson動態資料清除_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <!-- Back button and page title -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+        </Grid>
+    </Grid>
+</Page>
