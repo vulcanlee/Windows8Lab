@@ -11,19 +11,86 @@
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
-        <Storyboard x:Name="TurnPage由左往右">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="gd左邊手寫畫板翻頁動畫">
-                <EasingDoubleKeyFrame x:Name="gd左邊手寫畫板翻頁動畫PPRY_From" KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame x:Name="gd左邊手寫畫板翻頁動畫PPRY_To" KeyTime="0:0:0.5" Value="-69"/>
-            </DoubleAnimationUsingKeyFrames>
+        <Storyboard x:Name="Storyboard右頁斜角翻頁">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls右邊Point1"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="768,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls右邊Point2"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls右邊Point3"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,1024" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="Storyboard右頁背景斜角翻頁">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls右邊Point10"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="768,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls右邊Point20"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls右邊Point30"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
         </Storyboard>
 
-        <Storyboard x:Name="TurnPage由左往右1">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)" Storyboard.TargetName="gd右邊手寫畫板翻頁動畫">
-                <EasingDoubleKeyFrame x:Name="gd右邊手寫畫板翻頁動畫PPRY_From" KeyTime="0" Value="69"/>
-                <EasingDoubleKeyFrame x:Name="gd右邊手寫畫板翻頁動畫PPRY_To" KeyTime="0:0:0.5" Value="0"/>
-            </DoubleAnimationUsingKeyFrames>
+        <Storyboard x:Name="Storyboard左頁斜角翻頁">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Point1"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="768,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Point2"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Point3"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,1024" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Name="Storyboard左頁背景斜角翻頁">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Point10"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="768,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Point20"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Point30"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+        </Storyboard>
+
     </Page.Resources>
 
     <Grid Background="White">
@@ -58,14 +125,66 @@
                                VerticalAlignment="Top" HorizontalAlignment="Left"
                                Height="1024" Width="768" />
                         </Grid>
+                        <Grid x:Name="gd左邊斜角動畫" Visibility="Collapsed">
+                            <Path x:Name="mypath左邊背景" Stroke="Black" StrokeThickness="0" Width="768" Height="1024" >
+                                <Path.Fill>
+                                    <ImageBrush x:Name="ibsh左邊背景" Stretch="Fill" ImageSource="Assets/bg_book_half_g.png"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigureCollection>
+                                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                                    <PathFigure.Segments>
+                                                        <PathSegmentCollection>
+                                                            <LineSegment Point="0,0" />
+                                                            <LineSegment x:Name="ls左邊Point30"  Point="0,1024" />
+                                                            <LineSegment Point="768,1024" />
+                                                            <LineSegment Point="768,0" />
+                                                            <LineSegment x:Name="ls左邊Point10" Point="0,0" />
+                                                            <LineSegment x:Name="ls左邊Point20" Point="0,0" />
+                                                        </PathSegmentCollection>
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathFigureCollection>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                            <Path x:Name="mypath左邊" Stroke="Black" StrokeThickness="0" Width="768" Height="1024">
+                                <Path.Fill>
+                                    <ImageBrush x:Name="ibsh左邊手寫畫板翻頁動畫" Stretch="None" ImageSource="Assets/page_0.png"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigureCollection>
+                                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                                    <PathFigure.Segments>
+                                                        <PathSegmentCollection>
+                                                            <LineSegment Point="0,0" />
+                                                            <LineSegment x:Name="ls左邊Point3"  Point="0,1024" />
+                                                            <LineSegment Point="768,1024" />
+                                                            <LineSegment Point="768,0" />
+                                                            <LineSegment x:Name="ls左邊Point1" Point="0,0" />
+                                                            <LineSegment x:Name="ls左邊Point2" Point="0,0" />
+                                                        </PathSegmentCollection>
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathFigureCollection>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                        </Grid>
                     </Grid>
                 </Viewbox>
                 <Viewbox Margin="0,20,20,20">
                     <Grid Width="768" Height="1024" >
                         <Grid x:Name="gd右邊手寫畫板">
                             <Image x:Name="img右邊手寫畫板原始圖片背景" Source="Assets/bg_book_half_g.png" Width="768" Height="1024" Stretch="Fill" />
-                            <Image x:Name="img右邊手寫畫板原始圖片" Source="Assets/page_0.png"  Height="1024"
-                                   Stretch="None" VerticalAlignment="Top" Width="768" HorizontalAlignment="Left" >
+                            <Image x:Name="img右邊手寫畫板原始圖片" Source="Assets/page_0.png"  Height="1024" Width="768"
+                                   Stretch="None" VerticalAlignment="Top"  HorizontalAlignment="Left" >
                             </Image>
                         </Grid>
                         <Grid x:Name="gd右邊手寫畫板翻頁動畫">
@@ -77,36 +196,70 @@
                                Height="1024" Width="768" />
                             <Image x:Name="img右邊手寫畫板翻頁動畫" Source="Assets/page_2.png" Stretch="None" 
                                VerticalAlignment="Top" HorizontalAlignment="Left"
-                               Height="1024" Width="768" />
+                               Height="1024" Width="768" Visibility="Collapsed" />
+                        </Grid>
+                        <Grid x:Name="gd右邊斜角動畫" Visibility="Collapsed">
+                            <Path x:Name="mypath右邊背景" Stroke="Black" StrokeThickness="0" Width="768" Height="1024"
+                                  VerticalAlignment="Top"  HorizontalAlignment="Left">
+                                <Path.Fill>
+                                    <ImageBrush x:Name="ibsh右邊背景" Stretch="Fill" ImageSource="Assets/bg_book_half_g.png"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigureCollection>
+                                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                                    <PathFigure.Segments>
+                                                        <PathSegmentCollection>
+                                                            <LineSegment Point="0,0" />
+                                                            <LineSegment x:Name="ls右邊Point30"  Point="0,1024" />
+                                                            <LineSegment Point="768,1024" />
+                                                            <LineSegment Point="768,0" />
+                                                            <LineSegment x:Name="ls右邊Point10" Point="0,0" />
+                                                            <LineSegment x:Name="ls右邊Point20" Point="0,0" />
+                                                        </PathSegmentCollection>
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathFigureCollection>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                            <Path x:Name="mypath右邊" Stroke="Black" StrokeThickness="0" Width="768" Height="1024"
+                                  VerticalAlignment="Top"  HorizontalAlignment="Left">
+                                <Path.Fill>
+                                    <ImageBrush x:Name="ibsh右邊手寫畫板翻頁動畫" Stretch="None" ImageSource="Assets/page_0.png"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigureCollection>
+                                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                                    <PathFigure.Segments>
+                                                        <PathSegmentCollection>
+                                                            <LineSegment Point="0,0" />
+                                                            <LineSegment x:Name="ls右邊Point3"  Point="0,1024" />
+                                                            <LineSegment Point="768,1024" />
+                                                            <LineSegment Point="768,0" />
+                                                            <LineSegment x:Name="ls右邊Point1" Point="0,0" />
+                                                            <LineSegment x:Name="ls右邊Point2" Point="0,0" />
+                                                        </PathSegmentCollection>
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathFigureCollection>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                            <Image x:Name="imgTemp右" Stretch="None" VerticalAlignment="Top"  HorizontalAlignment="Left"
+                                   Height="1024" Width="768" Visibility="Collapsed"/>
                         </Grid>
                     </Grid>
                 </Viewbox>
                 <StackPanel Orientation="Vertical" Margin="50,0,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <Button x:Name="btnStart由左向右" Content="由左向右翻頁" Click="btnStart由左向右_Click" />
-                        <Button x:Name="btnStart由左向右1" Content="由左向右翻頁1" Click="btnStart由左向右1_Click" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="btnStart由右向左" Content="由右向左翻頁" Click="btnStart由右向左_Click" />
-                        <Button x:Name="btnStart由右向左1" Content="由右向左翻頁1" Click="btnStart由右向左1_Click" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="btnStart由左向右單頁" Content="由左向右翻頁單頁" Click="btnStart由左向右單頁_Click" />
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical">
-                        <TextBox x:Name="tbkTime" Header="請輸入動畫所需的毫秒ms時間" Text="500"/>
-                        <Button x:Name="btn動畫時間" Content="動畫時間" Click="btn動畫時間_Click" />
-                        <Viewbox Width="300">
-                            <Grid>
-                                <!--<Image Source="Assets/maskImage.png" />-->
-
-
-                                <Image Source="Assets/page_2.png" Stretch="None" 
-                               VerticalAlignment="Top" HorizontalAlignment="Left"
-                               Height="1024" Width="768" />
-
-                            </Grid>
-                        </Viewbox>
+                        <Button x:Name="btnStart由左向右翻頁" Content="由左向右翻頁 (0.03s)" Click="btnStart由左向右翻頁_Click" />
+                        <Button x:Name="btnStart由右向左" Content="由右向左翻頁 (0.05s)" Click="btnStart由右向左翻頁_Click" />
                     </StackPanel>
                 </StackPanel>
 
