@@ -91,6 +91,49 @@
             </PointAnimationUsingKeyFrames>
         </Storyboard>
 
+        <Storyboard x:Name="StoryboardXX左頁背景斜角翻頁">
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Pt2"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0:0:0" Value="0,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Pt3"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="768,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Pt4"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="0,1024"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="0,1024"/>
+            </PointAnimationUsingKeyFrames>
+            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="Point" Storyboard.TargetName="ls左邊Pt5"
+                                          EnableDependentAnimation="True">
+                <EasingPointKeyFrame KeyTime="0" Value="0,0" />
+                <EasingPointKeyFrame KeyTime="0:0:0.5" Value="768,0"/>
+                <EasingPointKeyFrame KeyTime="0:0:1" Value="768,0"/>
+            </PointAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(TileBrush.Stretch)" Storyboard.TargetName="mypath左邊X">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Stretch>None</Stretch>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Stretch>None</Stretch>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Stretch>None</Stretch>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
 
     <Grid Background="White">
@@ -261,6 +304,64 @@
                         <Button x:Name="btnStart由左向右翻頁" Content="由左向右翻頁 (0.03s)" Click="btnStart由左向右翻頁_Click" />
                         <Button x:Name="btnStart由右向左" Content="由右向左翻頁 (0.05s)" Click="btnStart由右向左翻頁_Click" />
                     </StackPanel>
+
+                    <Viewbox Width="300">
+                        <Grid x:Name="gd左邊斜角動畫X" >
+                            <Image Source="Assets/page_2.png" />
+                            <Path x:Name="mypath左邊X" Stroke="Black" StrokeThickness="0" Width="768" Height="1024">
+                                <Path.Fill>
+                                    <ImageBrush x:Name="ibsh左邊手寫畫板翻頁動畫X" Stretch="None" ImageSource="Assets/page_0.png"/>
+                                </Path.Fill>
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigureCollection>
+                                                <PathFigure IsClosed="True" StartPoint="0,0">
+                                                    <PathFigure.Segments>
+                                                        <PathSegmentCollection>
+                                                            <LineSegment x:Name="ls左邊Pt1"  Point="0,0" />
+                                                            <LineSegment  Point="0,1024" />
+                                                            <LineSegment x:Name="ls左邊Pt4" Point="0,600" />
+                                                            <LineSegment x:Name="ls左邊Pt2"  Point="0,600" />
+                                                            <LineSegment x:Name="ls左邊Pt3" Point="500,0" />
+                                                            <LineSegment  Point="768,0" />
+                                                            <LineSegment x:Name="ls左邊Pt5" Point="500,0" />
+                                                            <LineSegment x:Name="ls左邊Pt6" Point="0,0" />
+                                                        </PathSegmentCollection>
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathFigureCollection>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                            <Line Y1="600" X2="500" Y2="0" StrokeThickness="30" >
+                                <Line.Stroke>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-45"/>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="Transparent" Offset="0.989"/>
+                                        <GradientStop Color="#00FEFEFE" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Line.Stroke>
+                            </Line>
+                            <Ellipse Width="300" Height="300" >
+                                <Ellipse.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect">
+                                        <LinearGradientBrush.RelativeTransform>
+                                            <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="-45"/>
+                                        </LinearGradientBrush.RelativeTransform>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="White" Offset="0.989"/>
+                                        <GradientStop Color="#FFFEFEFE" Offset="0.597"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Grid>
+                    </Viewbox>
+
                 </StackPanel>
 
             </StackPanel>
