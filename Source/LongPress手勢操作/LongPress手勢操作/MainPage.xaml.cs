@@ -221,7 +221,8 @@ namespace App1
                 長按手勢操作狀態.長按座標 = e.GetCurrentPoint(this.Rect3).Position;
 
                 _長按手勢操作狀態Timer.Stop();
-                _長按手勢操作狀態Timer.Interval = new TimeSpan(0, 0, 0, 0, Convert.ToInt32(長按手勢操作狀態.長按Timer觸發時間));
+                //_長按手勢操作狀態Timer.Interval = new TimeSpan(0, 0, 0, 0, Convert.ToInt32(長按手勢操作狀態.長按Timer觸發時間));
+                _長按手勢操作狀態Timer.Interval = TimeSpan.FromMilliseconds(80);
                 _長按手勢操作狀態Timer.Tick -= _長按手勢操作狀態Timer_Tick;
                 _長按手勢操作狀態Timer.Tick -= _長按手勢操作狀態Timer_Tick;
                 _長按手勢操作狀態Timer.Tick -= _長按手勢操作狀態Timer_Tick;

@@ -9,6 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Horizontal">
+            <local:MyUserControl1 />
             <StackPanel Orientation="Vertical">
                 <TextBox x:Name="tbxMessage" Width="300" Height="500" AcceptsReturn="True" />
                 <Button x:Name="btnClean" Content="Clean" Click="btnClean_Click"/>
