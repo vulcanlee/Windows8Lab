@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="BackgroundDownloaderTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BackgroundDownloaderTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+            >
+            <TextBlock Text="BackgroundDownloader" FontSize="20"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnBack" Content="Back" Click="btnBack_Click" />
+                <Button x:Name="btnAllRefresh" Content="Refresh" Click="btnAllRefresh_Click" />
+                <Button x:Name="btnAllRefreshAttach" Content="Refresh Attach" Click="btnAllRefreshAttach_Click" />
+                <Button x:Name="btnAllAttach" Content="Attach" />
+                <Button x:Name="btnAllResume" Content="Resume All" />
+                <Button x:Name="btnAllPause" Content="Pause All" />
+                <Button x:Name="btnAllCancel" Content="Cancel All" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Border BorderBrush="#FF4F4444" BorderThickness="3">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnDownload1" Content="Download" Tag="0" Click="btnDownloadX_Click"/>
+                            <Button x:Name="btnPause1" Content="Pause" Tag="0" Click="btnPauseX_Click"/>
+                            <Button x:Name="btnResume1" Content="Resume" Tag="0" Click="btnResumeX_Click"/>
+                        </StackPanel>
+                        <ProgressBar Name="Progressbar1" Margin="0" Minimum="0" Maximum="100" />
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="#FF4F4444" BorderThickness="3">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnDownload2" Content="Download" Tag="1" Click="btnDownloadX_Click"/>
+                            <Button x:Name="btnPause2" Content="Pause" Tag="1" Click="btnPauseX_Click"/>
+                            <Button x:Name="btnResume2" Content="Resume" Tag="1" Click="btnResumeX_Click"/>
+                        </StackPanel>
+                        <ProgressBar Name="Progressbar2" Margin="0" Minimum="0" Maximum="100" />
+                    </StackPanel>
+                </Border>
+                <Border BorderBrush="#FF4F4444" BorderThickness="3">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="btnDownload3" Content="Download" Tag="2" Click="btnDownloadX_Click"/>
+                            <Button x:Name="btnPause3" Content="Pause" Tag="2" Click="btnPauseX_Click"/>
+                            <Button x:Name="btnResume3" Content="Resume" Tag="2" Click="btnResumeX_Click"/>
+                        </StackPanel>
+                        <ProgressBar Name="Progressbar3" Margin="0" Minimum="0" Maximum="100" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
